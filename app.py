@@ -29,7 +29,7 @@ st.sidebar.markdown("---")
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
-select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepEfficiency"])
+select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep Efficiency"])
 
 # Load the salary quality dataset
 df_sleep = pd.read_csv("SleepEfficiency.csv")
@@ -49,7 +49,7 @@ df2 = df[['Age','Sleep duration','REM sleep percentage','Deep sleep percentage',
 
 # Dropdown menu for selecting which variable from the dataset to predict
 list_var = df2.columns
-select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Sleep Eff'])
+select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Sleep Efficiency'])
 
 # Introduction page content
 if app_mode == 'Introduction':
