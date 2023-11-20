@@ -15,11 +15,11 @@ import altair as alt
 
 
 # Image
-image_sal = Image.open('sal1.jpg')
-st.image(image_sal, width=500, use_column_width=True)
+image_sleep = Image.open('sleep.png')
+st.image(image_sleep, width=500, use_column_width=True)
 
 # Title
-st.title("Employment Salary Prediction")
+st.title("Sleep Efficiency Prediction")
 
 # Sidebar header and a separator
 st.sidebar.header("Dashboard")
@@ -29,13 +29,13 @@ st.sidebar.markdown("---")
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
-select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Salary"])
+select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep_efficiency"])
 
 # Load the salary quality dataset
-df_temp = pd.read_csv("Salary_Data.csv")
+df_sleep = pd.read_csv("SleepEfficiency.csv")
 #####################################################################
 # Changes made to data
-df = df_temp.dropna()
+df = df_sleep.dropna()
 
 df = df[df.Gender != 'Other']
 
@@ -57,7 +57,7 @@ df2 = df[['Age', 'Years of Experience', 'Salary']].copy()
 
 # Dropdown menu for selecting which variable from the dataset to predict
 list_var = df2.columns
-select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Salary'])
+select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Sleep Eff'])
 
 # Introduction page content
 if app_mode == 'Introduction':
