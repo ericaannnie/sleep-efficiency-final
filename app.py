@@ -25,6 +25,9 @@ st.title("Sleep Efficiency Prediction")
 st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 
+#get model
+model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression'])
+    
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Chatbot'])
 
