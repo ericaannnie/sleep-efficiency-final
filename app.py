@@ -37,16 +37,8 @@ df_sleep = pd.read_csv("SleepEfficiency.csv")
 # Changes made to data
 df = df_sleep.dropna()
 
-df = df[df.Gender != 'Other']
-
-df['Education Level'] = df['Education Level'].replace(["Bachelor's Degree", "Bachelor's"], "Bachelor's")
-df['Education Level'] = df['Education Level'].replace(["Master's Degree", "Master's"], "Master's")
-df['Education Level'] = df['Education Level'].replace(["Phd", "phD"], "PhD")
-
-df.groupby('Job Title').filter(lambda x : len(x)>30)
-
 # Create new df just in case
-df2 = df[['Age', 'Years of Experience', 'Salary']].copy()
+df2 = df[['Age','Sleep duration','REM sleep percentage','Deep sleep percentage','Light sleep percentage']].copy()
 
 #####################################################################
 
