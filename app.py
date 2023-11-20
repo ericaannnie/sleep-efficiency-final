@@ -73,11 +73,11 @@ if app_mode == 'Introduction':
 
     # Apply to each column
     col1.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age at which the person currently is.</div>', unsafe_allow_html=True)
-    col2.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>Gender of the person. Either male or female.</div>', unsafe_allow_html=True)
-    col3.markdown(f'<div style="{box_style}"><strong>Education Level</strong><br><br>Academic education level of the professional.<br>Ex: Bachelors</div>', unsafe_allow_html=True)
-    col4.markdown(f'<div style="{box_style}"><strong>Job Title</strong><br><br><br>Title of the professional\'s job.<br>Ex: Project Manager</div>', unsafe_allow_html=True)
-    col5.markdown(f'<div style="{box_style}"><strong>Years of Experience</strong><br><br>Number of years in the workforce.</div>', unsafe_allow_html=True)
-    col6.markdown(f'<div style="{box_style}"><strong>Salary</strong><br><br><br>Salary in USD of the professional.</div>', unsafe_allow_html=True)
+    col2.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
+    col3.markdown(f'<div style="{box_style}"><strong>REM Sleep Percentage</strong><br><br>Percentage of rapid eye movement sleep. The higher, the better.<br>Ex: Bachelors</div>', unsafe_allow_html=True)
+    col4.markdown(f'<div style="{box_style}"><strong>Deep Sleep Percentage</strong><br><br><br>Percentage of REM sleep where body relaxes and repairs itself.</div>', unsafe_allow_html=True)
+    col5.markdown(f'<div style="{box_style}"><strong>Light Sleep Percentage</strong><br><br>Percentage of REM sleep where someone is most easily awakened from.</div>', unsafe_allow_html=True)
+    col6.markdown(f'<div style="{box_style}"><strong>Sleep Efficiency</strong><br><br><br>Measure of quality of sleep.</div>', unsafe_allow_html=True)
 ##############
 
 # Split the page into 10 columns to display information about each wine quality variable
