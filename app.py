@@ -29,7 +29,7 @@ st.sidebar.markdown("---")
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
-select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep_efficiency"])
+select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepEfficiency"])
 
 # Load the salary quality dataset
 df_sleep = pd.read_csv("SleepEfficiency.csv")
@@ -132,7 +132,7 @@ if app_mode == 'Introduction':
 
     st.markdown("### 02 - Missing Values")
     st.markdown("Missing values are known as null or NaN values. Missing data tends to **introduce bias that leads to misleading results.**")
-    dfnull = df_temp.isnull().sum()/len(df_temp)*100
+    dfnull = df_sleep.isnull().sum()/len(df_sleep)*100
     totalmiss = dfnull.sum().round(2)
     st.write("Percentage of total missing values:",totalmiss)
     st.write(dfnull)
@@ -145,8 +145,8 @@ if app_mode == 'Introduction':
     st.markdown("### 03 - Completeness")
     st.markdown(" Completeness is defined as the ratio of non-missing values to total records in dataset.")
     # st.write("Total data length:", len(df))
-    nonmissing = (df_temp.notnull().sum().round(2))
-    completeness= round(sum(nonmissing)/len(df_temp),2)
+    nonmissing = (df_sleep.notnull().sum().round(2))
+    completeness= round(sum(nonmissing)/len(df_sleep),2)
     st.write("Completeness ratio:",completeness)
     st.write(nonmissing)
     if completeness >= 0.80:
