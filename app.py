@@ -229,10 +229,10 @@ if app_mode == 'Prediction':
 
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df[['Age','Gender','Education Level', 'Job Title','Years of Experience']]
+        X = df[["Age","Sleep duration","REM sleep percentage","Deep sleep percentage","Light sleep percentage"]]
         
         
-        y = df['Salary']
+        y = df['Sleep efficiency']
     
         ####################################################################################
         #new_df2 = new_df[output_multi]
