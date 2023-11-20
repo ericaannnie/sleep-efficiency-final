@@ -89,15 +89,15 @@ if app_mode == 'Introduction':
 
     #col1.markdown(" **Age** ")
     #col1.markdown("Age at which the person is currently")
-    #col2.markdown(" **Gender** ")
+    #col2.markdown(" **Sleep duration** ")
     #col2.markdown("Gender of the person. Either male or female.")
-    #col3.markdown(" **Education Level** ")       
+    #col3.markdown(" **REM sleep percentage** ")       
     #col3.markdown("Education level of the professional. Ex: Bachelors")
-    #col4.markdown(" **Job Title** ")       
+    #col4.markdown(" **Deep sleep percentage** ")       
     #col4.markdown("Title of the professional's job. Ex: Project Manager")
-    #col5.markdown(" **Years of Experience** ")
+    #col5.markdown(" **Light sleep percentage** ")
     #col5.markdown("Number of years in the workforce")
-    #col6.markdown(" **Salary** ")
+    #col6.markdown(" **Sleep Efficiency** ")
     #col6.markdown("Salary in USD of the professional. ")
     " "
     " "
