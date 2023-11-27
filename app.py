@@ -19,7 +19,7 @@ image_sleep = Image.open('sleep.png')
 st.image(image_sleep, width=500, use_column_width=True)
 
 # Title
-st.title("Sleep Efficiency Prediction")
+st.title("Sleep Health Prediction")
 
 # Sidebar header and a separator
 st.sidebar.header("Dashboard")
@@ -29,19 +29,19 @@ st.sidebar.markdown("---")
 model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression'])
     
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
-app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Chatbot'])
+app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
-select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep Efficiency"])
+select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep Health"])
 
 # Load the salary quality dataset
-df_sleep = pd.read_csv("SleepEfficiency.csv")
+df_sleep = pd.read_csv("SleepHealth.csv")
 #####################################################################
 # Changes made to data
 df = df_sleep.dropna()
 
 # Create new df just in case
-df2 = df[['Age','Sleep duration','REM sleep percentage','Deep sleep percentage','Light sleep percentage']].copy()
+df2 = df[['Age','Sleep Duration','REM sleep percentage','Deep sleep percentage','Light sleep percentage']].copy()
 
 st.info("The dataset contains data on factors that affect sleep efficiency - add text blah blah blah.")
 st.info("This website will be able to predict whether - add text blah blah blah.")
