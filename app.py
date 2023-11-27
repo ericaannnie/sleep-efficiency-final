@@ -205,7 +205,7 @@ if app_mode == 'Prediction':
     list_var = df2.columns
 
     # Allow users to select explanatory variables for prediction
-    output_multi = st.multiselect("Select Explanatory Variables",  ["Years of Experience", "Age"])
+    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure'])
 
     # Define a function to perform linear regression prediction
     def predict(target_choice, test_size, new_df, output_multi):
@@ -227,10 +227,10 @@ if app_mode == 'Prediction':
 
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df[["Age","Sleep duration","REM sleep percentage","Deep sleep percentage","Light sleep percentage"]]
+        X = df[['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure']]
         
         
-        y = df['Sleep efficiency']
+        y = df['Quality of Sleep']
     
         ####################################################################################
         #new_df2 = new_df[output_multi]
