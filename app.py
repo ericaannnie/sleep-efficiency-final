@@ -32,7 +32,7 @@ model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logi
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
-select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["Sleep Health"])
+select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepHealth"])
 
 # Load the salary quality dataset
 df_sleep = pd.read_csv("SleepHealth.csv")
