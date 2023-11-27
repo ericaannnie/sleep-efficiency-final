@@ -15,7 +15,9 @@ import altair as alt
 
 
 # Image
-image_sleep = Image.open('sleep.png')
+#image_sleep = Image.open('sleep.png')
+#st.image(image_sleep, width=500, use_column_width=True)
+image_sleep = Image.open('TomAndJerrySleepGIF.gif')
 st.image(image_sleep, width=500, use_column_width=True)
 
 # Title
