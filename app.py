@@ -43,8 +43,8 @@ df = df_sleep.dropna()
 # Create new df just in case
 df2 = df[['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure']].copy()
 
-st.info("The dataset contains data on factors that affect sleep efficiency - add text blah blah blah.")
-st.info("This website will be able to predict whether - add text blah blah blah.")
+st.info("The dataset contains data on factors that affect sleep health.")
+st.info("This website will be able to predict - ADD TEXTT blah blah blah.")
 
 #####################################################################
 
