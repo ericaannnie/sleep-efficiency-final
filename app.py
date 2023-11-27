@@ -55,7 +55,7 @@ st.info("This website will be able to predict - ADD TEXTT blah blah blah.")
 
 # Dropdown menu for selecting which variable from the dataset to predict
 list_var = df2.columns
-select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Sleep Efficiency'])
+select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Sleep Health'])
 
 # Introduction page content
 if app_mode == 'Introduction':
