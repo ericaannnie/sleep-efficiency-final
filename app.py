@@ -41,7 +41,7 @@ df_sleep = pd.read_csv("SleepHealth.csv")
 df = df_sleep.dropna()
 
 # Create new df just in case
-df2 = df[['Age','Sleep Duration','REM sleep percentage','Deep sleep percentage','Light sleep percentage']].copy()
+df2 = df[['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure']].copy()
 
 st.info("The dataset contains data on factors that affect sleep efficiency - add text blah blah blah.")
 st.info("This website will be able to predict whether - add text blah blah blah.")
