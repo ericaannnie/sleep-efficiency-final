@@ -15,11 +15,8 @@ import altair as alt
 
 
 # Image
-#image_sleep = Image.open('sleep.png')
-#st.image(image_sleep, width=500, use_column_width=True)
-image_sleep = Image.open('TomAndJerrySleepGIF.gif')
+image_sleep = Image.open('sleep.png')
 st.image(image_sleep, width=500, use_column_width=True)
-st.markdown(f'<img src="{image_sleep_gif}" width="500">', unsafe_allow_html=True)
 
 # Title
 st.title("Sleep Efficiency Prediction")
