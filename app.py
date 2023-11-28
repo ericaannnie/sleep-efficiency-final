@@ -39,10 +39,14 @@ df_sleep = pd.read_csv("SleepHealth.csv")
 #####################################################################
 # Changes made to data
 df = df_sleep.dropna()
-
+df = pd.concat([df, df['Blood Pressure'].str.split('/', expand=True)], axis=1).drop('Blood Pressure', axis=1)
+df = df.rename(columns={0: 'BloodPressure_Upper_Value', 1: 'BloodPressure_Lower_Value'})
+df['BloodPressure_Upper_Value'] = df['BloodPressure_Upper_Value'].astype(float)
+df['BloodPressure_Lower_Value'] = df['BloodPressure_Lower_Value'].astype(float)
+#########
 # Create new df just in case
-df2 = df[['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure']].copy()
-
+df2 = df.drop(['Person ID'], axis =1)
+#########
 st.info("The dataset contains data on factors that affect sleep health.")
 st.info("This website will be able to predict - ADD TEXTT blah blah blah.")
 
@@ -64,6 +68,7 @@ if app_mode == 'Introduction':
 
 #############
     # Split the page into 6 columns to display information about each salary variable
+    ### UPDATE TO 12 COLUMNS
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     # CSS to style the columns
@@ -86,51 +91,30 @@ if app_mode == 'Introduction':
     col6.markdown(f'<div style="{box_style}"><strong>Sleep Efficiency</strong><br><br><br>Measure of quality of sleep.</div>', unsafe_allow_html=True)
 ##############
 
-# Split the page into 10 columns to display information about each wine quality variable
-    #col1, col2, col3, col4, col5, col6 = st.columns(6)
-
-    # Descriptions for each variable in the dataset
-    # ... [The code here provides descriptions for each wine quality variable]
-
-
-    #col1.markdown(" **Age** ")
-    #col1.markdown("Age at which the person is currently")
-    #col2.markdown(" **Sleep duration** ")
-    #col2.markdown("Gender of the person. Either male or female.")
-    #col3.markdown(" **REM sleep percentage** ")       
-    #col3.markdown("Education level of the professional. Ex: Bachelors")
-    #col4.markdown(" **Deep sleep percentage** ")       
-    #col4.markdown("Title of the professional's job. Ex: Project Manager")
-    #col5.markdown(" **Light sleep percentage** ")
-    #col5.markdown("Number of years in the workforce")
-    #col6.markdown(" **Sleep Efficiency** ")
-    #col6.markdown("Salary in USD of the professional. ")
-    " "
-    " "
 
 
     # Allow users to view either the top or bottom rows of the dataset
     num = st.number_input('No. of Rows', 5, 10)
     head = st.radio('View from top (head) or bottom (tail)', ('Head', 'Tail'))
     if head == 'Head':
-        st.dataframe(df.head(num))
+        st.dataframe(df2.head(num))
     else:
-        st.dataframe(df.tail(num))
+        st.dataframe(df2.tail(num))
 
     # Display the shape (number of rows and columns) of the dataset
     st.markdown("Number of rows and columns helps us to determine how large the dataset is.")
     st.text('(Rows,Columns)')
-    st.write(df.shape)
+    st.write(df2.shape)
 
 
     st.markdown("### 01 - Description")
-    st.dataframe(df.describe())
+    st.dataframe(df2.describe())
 
 
 
     st.markdown("### 02 - Missing Values")
     st.markdown("Missing values are known as null or NaN values. Missing data tends to **introduce bias that leads to misleading results.**")
-    dfnull = df_sleep.isnull().sum()/len(df_sleep)*100
+    dfnull = df2.isnull().sum()/len(df2)*100
     totalmiss = dfnull.sum().round(2)
     st.write("Percentage of total missing values:",totalmiss)
     st.write(dfnull)
@@ -143,8 +127,8 @@ if app_mode == 'Introduction':
     st.markdown("### 03 - Completeness")
     st.markdown(" Completeness is defined as the ratio of non-missing values to total records in dataset.")
     # st.write("Total data length:", len(df))
-    nonmissing = (df_sleep.notnull().sum().round(2))
-    completeness= round(sum(nonmissing)/len(df_sleep),2)
+    nonmissing = (df2.notnull().sum().round(2))
+    completeness= round(sum(nonmissing)/len(df2),2)
     st.write("Completeness ratio:",completeness)
     st.write(nonmissing)
     if completeness >= 0.80:
@@ -153,7 +137,7 @@ if app_mode == 'Introduction':
     else:
         st.success("Poor data quality due to low completeness ratio( less than 0.85).")
 
-
+############################################################################################################################################################################## STILL NEED TO EDIT FOR CURRENNT DF AND MODEL
 if app_mode == 'Visualization':
 
     list_var = df2.columns
