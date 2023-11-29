@@ -196,6 +196,26 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df3)
     st.pyplot(fig3)
 
+    ####FEATURE ENGINEERING FREQUENCY GRAPHS####
+    # Select categorical variables with small number unique values
+    df_barplot = dataset[["Gender","Sleep Duration","Quality of Sleep","BMI Category","Sleep Disorder"]]
+
+    # Create barplot with frequency for each variable
+    plt.figure(figsize=(8,8))
+
+    for c,var in enumerate(df_barplot.columns):
+      # compute frequency of each unique value
+      df = df_barplot[var].value_counts(normalize=True).to_frame("frequency").reset_index()
+      df["frequency"] = df["frequency"]*100
+
+      # plot the barplot
+      plt.subplot(3,2,c+1)
+      sns.barplot(data=df, x="index", y="frequency")
+      plt.title(str(var))
+      plt.xlabel("")
+      plt.ylabel("")
+
+    plt.tight_layout()
 
 
 # Check if the app mode is set to 'Prediction'
