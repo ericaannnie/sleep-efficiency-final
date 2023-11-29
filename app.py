@@ -196,7 +196,7 @@ if app_mode == 'Visualization':
 
     ####FEATURE ENGINEERING FREQUENCY GRAPHS####
     # Select categorical variables with small number unique values
-    df_barplot = dataset[["Gender","Sleep Duration","Quality of Sleep","BMI Category","Sleep Disorder"]]
+    df_barplot = dataset[["Gender","BMI Category"]]
 
     # Create barplot with frequency for each variable
     plt.figure(figsize=(8,8))
