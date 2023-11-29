@@ -191,9 +191,12 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df3)
     st.pyplot(fig3)
 
-    sns.histplot(df3["Gender"])
-    sns.histplot(df3["BMI Category"])
-    sns.histplot(df3["Sleep Disorder"])
+    fig4 = sns.histplot(df3["Gender"])
+    st.pyplot(fig4)
+    fig5 = sns.histplot(df3["BMI Category"])
+    st.pyplot(fig5)
+    fig6 = sns.histplot(df3["Sleep Disorder"])
+    st.pyplot(fig6)
 
     ####FEATURE ENGINEERING FREQUENCY GRAPHS####
     # Select categorical variables with small number unique values
