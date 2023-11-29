@@ -272,7 +272,7 @@ if app_mode == 'Prediction':
     st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions,y_test ),2))
     st.write("4) The R-Square score of the model is " , np.round(mt.r2_score(predictions, y_test),2))
 
-
+#######
 
 if app_mode == 'Chatbot 🤖':
     st.markdown("# :violet[ Your Personal Chatbot 🤖]")
