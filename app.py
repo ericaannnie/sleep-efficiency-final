@@ -180,17 +180,13 @@ if app_mode == 'Visualization':
     st.bar_chart(data=df2, x=symbols[0], y=symbols[1], use_container_width=True)
 
     # Content for the "Correlation" tab        
-    from sklearn import preprocessing
-        
-    label_encoder = preprocessing.LabelEncoder()
-    df2['Gender'] = label_encoder.fit_transform(df2['Gender'])
-    df2['Occupation'] = label_encoder.fit_transform(df2['Occupation'])
-    df2['BMI Category'] = label_encoder.fit_transform(df2['BMI Category'])
-    df2['Sleep Disorder'] = label_encoder.fit_transform(df2['Sleep Disorder'])
+
+    
     tab2.subheader("Correlation Tab 📉")
+    df4 = df2.drop(['Gender', 'Occupation', 'BMI Category', 'Sleep Disorder'], axis = 1)
     # Create a heatmap to show correlations between variables in the dataset
     fig, ax = plt.subplots(figsize=(width1, width1))
-    sns.heatmap(df2.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax)
+    sns.heatmap(df4.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax)
     tab2.write(fig)
 
     # Display a pairplot for the first five variables in the dataset
