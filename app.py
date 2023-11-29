@@ -29,7 +29,7 @@ st.sidebar.markdown("---")
 model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression'])
     
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
-app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment'])
+app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
 select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepHealth"])
@@ -360,3 +360,7 @@ if app_mode == 'Chatbot 🤖':
     st.write("2) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(predictions,y_test  ),2))
     st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions,y_test ),2))
     st.write("4) The R-Square score of the model is " , np.round(mt.r2_score(predictions, y_test),2))
+
+if app_mode == 'Conclusion':
+    # Display dataset details
+    st.markdown("### Key Takeaways")
