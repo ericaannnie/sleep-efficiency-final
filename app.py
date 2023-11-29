@@ -254,6 +254,18 @@ if app_mode == 'Prediction':
         predictions = lm.predict(X_test)
     
         return X_train, X_test, y_train, y_test, predictions, X, y
+    
+    # Call the prediction function and store the results
+    X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, test_size, df, list_var)
+    
+    # Display the results header in the Streamlit app
+    st.subheader('🎯 Results')
+    
+    # Display prediction metrics
+    st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
+    st.write("2) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(predictions,y_test  ),2))
+    st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions,y_test ),2))
+    st.write("4) The R-Square score of the model is " , np.round(mt.r2_score(predictions, y_test),2))
 
 
 
@@ -362,18 +374,7 @@ if app_mode == 'Chatbot 🤖':
                     f"Model used: {st.session_state['model_name'][i]}; Number of tokens: {st.session_state['total_tokens'][i]}; Cost: ${st.session_state['cost'][i]:.5f}")
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
-    
-    # Call the prediction function and store the results
-    X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, test_size, df, list_var)
-    
-    # Display the results header in the Streamlit app
-    st.subheader('🎯 Results')
-    
-    # Display prediction metrics
-    st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
-    st.write("2) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(predictions,y_test  ),2))
-    st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions,y_test ),2))
-    st.write("4) The R-Square score of the model is " , np.round(mt.r2_score(predictions, y_test),2))
+
 
 if app_mode == 'Conclusion':
     # Display dataset details
