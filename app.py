@@ -13,7 +13,7 @@ import random
 from PIL import Image
 import altair as alt
 import os
-
+import imageio
 
 
 # Image
@@ -381,5 +381,7 @@ if app_mode == 'Conclusion':
             "TomAndJerrySleepGIF.gif",
             width=400,
         )
+    gif = imageio.mimread("TomAndJerrySleepGIF.gif")
+    st.image(gif, caption='Your GIF', use_column_width=True)
 
 
