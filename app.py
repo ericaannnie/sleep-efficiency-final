@@ -179,7 +179,14 @@ if app_mode == 'Visualization':
     # Display a bar chart for the selected variables
     st.bar_chart(data=df2, x=symbols[0], y=symbols[1], use_container_width=True)
 
-    # Content for the "Correlation" tab
+    # Content for the "Correlation" tab        
+    from sklearn import preprocessing
+        
+    label_encoder = preprocessing.LabelEncoder()
+    df2['Gender'] = label_encoder.fit_transform(df2['Gender'])
+    df2['Occupation'] = label_encoder.fit_transform(df2['Occupation'])
+    df2['BMI Category'] = label_encoder.fit_transform(df2['BMI Category'])
+    df2['Sleep Disorder'] = label_encoder.fit_transform(df2['Sleep Disorder'])
     tab2.subheader("Correlation Tab 📉")
     # Create a heatmap to show correlations between variables in the dataset
     fig, ax = plt.subplots(figsize=(width1, width1))
@@ -227,12 +234,17 @@ if app_mode == 'Prediction':
         - predictions: Predicted values for the test set.
         - x, y: Full dataset split into explanatory variables and target variable.
         """
-
+        
+        from sklearn import preprocessing
+        
+        label_encoder = preprocessing.LabelEncoder()
+        df['Gender'] = label_encoder.fit_transform(df['Gender'])
+        df['Occupation'] = label_encoder.fit_transform(df['Occupation'])
+        df['BMI Category'] = label_encoder.fit_transform(df['BMI Category'])
+        df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df[['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure']]
-        
-        
+        X = df.drop(['Person ID', ''])
         y = df['Quality of Sleep']
     
         ####################################################################################
