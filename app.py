@@ -170,6 +170,11 @@ if app_mode == 'Visualization':
     # Content for the "Line Chart" tab
     tab1.subheader("Line Chart")
     # Display a line chart for the selected variables
+
+    
+    st.write(symbols)
+
+    
     st.line_chart(data=df2, x=symbols[0], y=symbols[1], width=0, height=0, use_container_width=True)
     # Display a bar chart for the selected variables
     st.bar_chart(data=df2, x=symbols[0], y=symbols[1], use_container_width=True)
