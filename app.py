@@ -96,7 +96,7 @@ if app_mode == 'Introduction':
     col5.markdown(f'<div style="{box_style}"><strong>Physical Activity Level</strong><br><br>% of REM sleep where someone is most easily awakened from.</div>', unsafe_allow_html=True)
     col6.markdown(f'<div style="{box_style}"><strong>Stress Level</strong><br><br><br>Measure of quality of sleep.</div>', unsafe_allow_html=True)
 
-    col7,col8,col9,col10,col11,col12 = st.columns(5)
+    col7,col8,col9,col10,col11,col12 = st.columns(6)
     col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br>The age at which the person currently is.</div>', unsafe_allow_html=True)
     col8.markdown(f'<div style="{box_style}"><strong>Blood Pressure Upper Value</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
     col9.markdown(f'<div style="{box_style}"><strong>Blood Pressure Lower Value</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
