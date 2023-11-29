@@ -244,7 +244,7 @@ if app_mode == 'Prediction':
         df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df.drop(['Person ID', 'Occupation'])
+        X = df.drop(['Person ID', 'Occupation'], axis = 1)
         y = df['Quality of Sleep']
     
         ####################################################################################
