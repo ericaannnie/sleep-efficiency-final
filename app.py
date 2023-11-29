@@ -241,9 +241,7 @@ if app_mode == 'Prediction':
     
         return X_train, X_test, y_train, y_test, predictions, X, y
 
-### CHATBOT
-from streamlit_chat import message
-import openai
+
 
 if app_mode == 'Chatbot 🤖':
     st.markdown("# :violet[ Your Personal Chatbot 🤖]")
