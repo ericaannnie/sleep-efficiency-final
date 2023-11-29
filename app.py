@@ -47,8 +47,7 @@ df['BloodPressure_Lower_Value'] = df['BloodPressure_Lower_Value'].astype(float)
 # Create new df just in case
 df2 = df.drop(['Person ID'], axis =1)
 #########
-st.info("The dataset contains data on factors that affect sleep health.")
-st.info("This website will be able to predict - ADD TEXTT blah blah blah.")
+
 
 #####################################################################
 
@@ -63,6 +62,10 @@ select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Qual
 
 # Introduction page content
 if app_mode == 'Introduction':
+    
+    st.info("The dataset contains data on factors that affect sleep health.")
+    st.info("This website will be able to predict - ADD TEXTT blah blah blah.")
+   
     # Display dataset details
     st.markdown("### 00 - Show Dataset")
 
