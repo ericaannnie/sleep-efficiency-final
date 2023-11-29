@@ -368,7 +368,7 @@ if app_mode == 'Conclusion':
     # Display dataset details
     st.markdown("### Key Takeaways")
 
-cd path/to/sleep-efficiency-final/repository
+cd path/to/app.py
 cp path/to/your/gif/TomAndJerrySleepGIF.gif
 git add TomAndJerrySleepGIF.gif
 git commit -m " Add TomAndJerrySleepGIF"
