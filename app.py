@@ -88,12 +88,20 @@ if app_mode == 'Introduction':
     """
 
     # Apply to each column
-    col1.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age at which the person currently is.</div>', unsafe_allow_html=True)
-    col2.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
-    col3.markdown(f'<div style="{box_style}"><strong>REM Sleep Percentage</strong><br><br>% of rapid eye movement sleep, the higher the better.</div>', unsafe_allow_html=True)
-    col4.markdown(f'<div style="{box_style}"><strong>Deep Sleep Percentage</strong><br><br><br>% of REM sleep where body relaxes and repairs itself.</div>', unsafe_allow_html=True)
-    col5.markdown(f'<div style="{box_style}"><strong>Light Sleep Percentage</strong><br><br>% of REM sleep where someone is most easily awakened from.</div>', unsafe_allow_html=True)
-    col6.markdown(f'<div style="{box_style}"><strong>Sleep Efficiency</strong><br><br><br>Measure of quality of sleep.</div>', unsafe_allow_html=True)
+    col1,col2,col3,col4,col5,col6 = st.columns(6)
+    col1.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>The age at which the person currently is.</div>', unsafe_allow_html=True)
+    col2.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
+    col3.markdown(f'<div style="{box_style}"><strong>Sleep Duration/strong><br><br>% of rapid eye movement sleep, the higher the better.</div>', unsafe_allow_html=True)
+    col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>% of REM sleep where body relaxes and repairs itself.</div>', unsafe_allow_html=True)
+    col5.markdown(f'<div style="{box_style}"><strong>Physical Activity Level</strong><br><br>% of REM sleep where someone is most easily awakened from.</div>', unsafe_allow_html=True)
+    col6.markdown(f'<div style="{box_style}"><strong>Stress Level</strong><br><br><br>Measure of quality of sleep.</div>', unsafe_allow_html=True)
+
+    col7,col8,col9,col10,col11 = st.columns(5)
+    col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br>The age at which the person currently is.</div>', unsafe_allow_html=True)
+    col8.markdown(f'<div style="{box_style}"><strong>Blood Pressure</strong><br><br><br>How many hours a person slept.</div>', unsafe_allow_html=True)
+    col9.markdown(f'<div style="{box_style}"><strong>Heart Rate</strong><br><br>% of rapid eye movement sleep, the higher the better.</div>', unsafe_allow_html=True)
+    col10.markdown(f'<div style="{box_style}"><strong>Daily Steps</strong><br><br><br>% of REM sleep where body relaxes and repairs itself.</div>', unsafe_allow_html=True)
+    col11.markdown(f'<div style="{box_style}"><strong>Sleep Disorder</strong><br><br>% of REM sleep where someone is most easily awakened from.</div>', unsafe_allow_html=True)
 ##############
 
 
