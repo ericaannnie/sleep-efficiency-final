@@ -406,6 +406,41 @@ if app_mode == 'Chatbot 🤖':
                 counter_placeholder.write(f"Total cost of this conversation: ${st.session_state['total_cost']:.5f}")
 
 
+if app_mode == 'Deployment':
+    # Deployment page for model deployment
+    st.markdown("# :violet[Deployment 🚀]")
+    id = st.text_input('ID Model', '/content/mlruns/2/ab897d9145a64b6d87b0a54e1c52735c/artifacts/to_model_v1')
+
+    # Load model for prediction
+    logged_model = f'/content/mlruns/2/ab897d9145a64b6d87b0a54e1c52735c/artifacts/top_model_v1'
+    loaded_model = mlflow.pyfunc.load_model(logged_model)
+
+
+
+    df = pd.read_csv("SleepHealth.csv")
+    deploy_df= df.drop(labels='alcohol', axis=1)
+    list_var = deploy_df.columns
+    #st.write(target_choice)
+
+    number1 = st.number_input(deploy_df.columns[0],0.7)
+    number2 = st.number_input(deploy_df.columns[1],0.04)
+    number3 = st.number_input(deploy_df.columns[2],1.1)
+    number4 = st.number_input(deploy_df.columns[3],0.05)
+    number5 = st.number_input(deploy_df.columns[4],25)
+    number6 = st.number_input(deploy_df.columns[5],20)
+    number7 = st.number_input(deploy_df.columns[6],0.98)
+    number8 = st.number_input(deploy_df.columns[7],1.9)
+    number9 = st.number_input(deploy_df.columns[8],0.4)
+    number10 = st.number_input(deploy_df.columns[9],9.4)
+    number11 = st.number_input(deploy_df.columns[10],5)
+
+    data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
+         deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
+         deploy_df.columns[7]:[number8], deploy_df.columns[8]:[number9],deploy_df.columns[9]:[number10],deploy_df.columns[10]:[number11]})
+    # Predict on a Pandas DataFrame.
+    #import pandas as pd
+    st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
+
 
 if app_mode == 'Conclusion':
     # Display dataset details
