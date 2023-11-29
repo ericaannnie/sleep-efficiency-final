@@ -188,17 +188,17 @@ if app_mode == 'Visualization':
     st.markdown("### Pairplot")
     df3 = df2
 
-    fig3 = sns.pairplot(df3)
-    st.pyplot(fig3)
+    # fig3 = sns.pairplot(df3)
+    # st.pyplot(fig3)
 
-    fig4 = sns.histplot(df2["Gender"])
-    st.pyplot(fig4)
+    # fig4 = sns.histplot(df2["Gender"])
+    # st.pyplot(fig4)
     
-    fig5 = sns.histplot(df2["BMI Category"])
-    st.pyplot(fig5)
+    # fig5 = sns.histplot(df2["BMI Category"])
+    # st.pyplot(fig5)
     
-    fig6 = sns.histplot(df2["Sleep Disorder"])
-    st.pyplot(fig6)
+    # fig6 = sns.histplot(df2["Sleep Disorder"])
+    # st.pyplot(fig6)
 
     ####FEATURE ENGINEERING FREQUENCY GRAPHS####
     # Select categorical variables with small number unique values
