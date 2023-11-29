@@ -15,6 +15,7 @@ import altair as alt
 import os
 
 
+
 # Image
 image_sleep = Image.open('sleep.png')
 st.image(image_sleep, width=500, use_column_width=True)
@@ -368,12 +369,9 @@ if app_mode == 'Chatbot 🤖':
 if app_mode == 'Conclusion':
     # Display dataset details
     st.markdown("### Key Takeaways")
-    
-    repository_path = "path/to/app.py/repository"
-    os.chdir(repository_path)
-    cd path/to/app.py/repository
-    cp path/to/your/gif/TomAndJerrySleepGIF.gif
-    git add TomAndJerrySleepGIF.gif
-    git commit -m " Add TomAndJerrySleepGIF"
-    git push
+    st.image(
+            "TomAndJerrySleepGIF.gif",
+            width=400,
+        )
+
 
