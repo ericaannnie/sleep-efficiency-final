@@ -41,13 +41,11 @@ df_sleep = pd.read_csv("SleepHealth.csv")
 #####################################################################
 # Changes made to data
 df = df_sleep.dropna()
-df = pd.concat([df, df['Blood Pressure'].str.split('/', expand=True)], axis=1).drop('Blood Pressure', axis=1)
-df = df.rename(columns={0: 'BloodPressure_Upper_Value', 1: 'BloodPressure_Lower_Value'})
-df['BloodPressure_Upper_Value'] = df['BloodPressure_Upper_Value'].astype(float)
-df['BloodPressure_Lower_Value'] = df['BloodPressure_Lower_Value'].astype(float)
+
 #########
 # Create new df just in case
-df2 = df.drop(['Person ID'], axis =1)
+df = df.drop(['Person ID', 'Blood Pressure'], axis =1)
+df2 = df.copy()
 #########
 
 
