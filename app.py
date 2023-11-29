@@ -148,7 +148,7 @@ if app_mode == 'Visualization':
     st.markdown("## Visualization")
 
     # Allow users to select two variables from the dataset for visualization
-    symbols = st.multiselect("Select two variables", list_var, ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','Blood Pressure'])
+    symbols = st.multiselect("Select two variables", list_var, )
 
     # Create a slider in the sidebar for users to adjust the plot width
     width1 = st.sidebar.slider("plot width", 1, 25, 10)
