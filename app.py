@@ -191,11 +191,13 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df3)
     st.pyplot(fig3)
 
-    fig4 = sns.histplot(df3["Gender"])
+    fig4 = sns.histplot(df2["Gender"])
     st.pyplot(fig4)
-    fig5 = sns.histplot(df3["BMI Category"])
+    
+    fig5 = sns.histplot(df2["BMI Category"])
     st.pyplot(fig5)
-    fig6 = sns.histplot(df3["Sleep Disorder"])
+    
+    fig6 = sns.histplot(df2["Sleep Disorder"])
     st.pyplot(fig6)
 
     ####FEATURE ENGINEERING FREQUENCY GRAPHS####
