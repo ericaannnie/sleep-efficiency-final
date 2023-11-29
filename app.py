@@ -379,10 +379,8 @@ if app_mode == 'Conclusion':
     # Display dataset details
     st.markdown("### Key Takeaways")
     st.image(
-            "TomAndJerrySleepGIF.gif",
+            "https://media.tenor.com/jQlbcSS2HgoAAAAd/tom-and-jerry-sleep.gif",
             width=400,
         )
-    gif = imageio.mimread("TomAndJerrySleepGIF.gif")
-    st.image(gif, caption='Your GIF', use_column_width=True)
 
 
