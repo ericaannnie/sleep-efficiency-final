@@ -78,7 +78,7 @@ select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Qual
 if app_mode == 'Introduction':
     
     st.info("The dataset contains data on factors that affect sleep health.")
-    st.info("This website will be able to predict your level of sleep quality on a scale of 0 to 10.")
+    st.info("This website will be able to predict your quality of sleep on a scale of 0 to 10.")
    
     # Display dataset details
     st.markdown("### 00 - Show Dataset")
@@ -102,17 +102,17 @@ if app_mode == 'Introduction':
     # Apply to each column
     col1,col2,col3,col4,col5 = st.columns(5)
     col1.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>The gender of the person (Male/Female)</div>', unsafe_allow_html=True)
-    col2.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age of the person in years.</div>', unsafe_allow_html=True)
-    col3.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br>The number of hours spent sleeping in a day.</div>', unsafe_allow_html=True)
-    col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>Subjective rating of sleep quality.</div>', unsafe_allow_html=True)
-    col5.markdown(f'<div style="{box_style}"><strong>Physical Activity Level</strong><br><br>Number of minutes spent exercising in a day.</div>', unsafe_allow_html=True)
+    col2.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age of the person in years</div>', unsafe_allow_html=True)
+    col3.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br>The number of hours spent sleeping in a day</div>', unsafe_allow_html=True)
+    col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>Subjective rating of sleep quality (0-10)</div>', unsafe_allow_html=True)
+    col5.markdown(f'<div style="{box_style}"><strong>Physical Activity Level</strong><br><br>Number of minutes spent exercising in a day</div>', unsafe_allow_html=True)
 
     col6,col7,col8,col9,col10 = st.columns(5)
-    col6.markdown(f'<div style="{box_style}"><strong>Stress Level</strong><br><br><br>Subjective rating of stress level experienced.</div>', unsafe_allow_html=True)
-    col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br>Whether a person is underweight, normal, or overweight.</div>', unsafe_allow_html=True)
-    col8.markdown(f'<div style="{box_style}"><strong>Heart Rate</strong><br><br><br>Resting heart rate in beats per minute.</div>', unsafe_allow_html=True)
-    col9.markdown(f'<div style="{box_style}"><strong>Daily Steps</strong><br><br><br>Number of steps walked in a day.</div>', unsafe_allow_html=True)
-    col10.markdown(f'<div style="{box_style}"><strong>Sleep Disorder</strong><br><br>Whether a person has a sleep disorder or not.</div>', unsafe_allow_html=True)
+    col6.markdown(f'<div style="{box_style}"><strong>Stress Level</strong><br><br><br>Subjective rating of stress level experienced</div>', unsafe_allow_html=True)
+    col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br>Whether a person is underweight, normal, or overweight</div>', unsafe_allow_html=True)
+    col8.markdown(f'<div style="{box_style}"><strong>Heart Rate</strong><br><br><br>Resting heart rate in beats per minute</div>', unsafe_allow_html=True)
+    col9.markdown(f'<div style="{box_style}"><strong>Daily Steps</strong><br><br><br>Number of steps walked in a day</div>', unsafe_allow_html=True)
+    col10.markdown(f'<div style="{box_style}"><strong>Sleep Disorder</strong><br><br>Whether a person has a sleep disorder or not</div>', unsafe_allow_html=True)
 ##############
 
 
