@@ -94,7 +94,7 @@ if app_mode == 'Introduction':
 
     col6,col7,col8,col9,col10 = st.columns(5)
     col6.markdown(f'<div style="{box_style}"><strong>Stress Level</strong><br><br><br>Subjective rating of stress level experienced.</div>', unsafe_allow_html=True)
-    col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br><br>Whether a person is underweight, normal, or overweight.</div>', unsafe_allow_html=True)
+    col7.markdown(f'<div style="{box_style}"><strong>BMI Category</strong><br><br><br>Whether a person is underweight, normal, or overweight.</div>', unsafe_allow_html=True)
     col8.markdown(f'<div style="{box_style}"><strong>Heart Rate</strong><br><br><br>Resting heart rate in beats per minute.</div>', unsafe_allow_html=True)
     col9.markdown(f'<div style="{box_style}"><strong>Daily Steps</strong><br><br><br>Number of steps walked in a day.</div>', unsafe_allow_html=True)
     col10.markdown(f'<div style="{box_style}"><strong>Sleep Disorder</strong><br><br>Whether a person has a sleep disorder or not.</div>', unsafe_allow_html=True)
