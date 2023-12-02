@@ -22,7 +22,7 @@ st.markdown(
     f"""
     <style>
         body {{
-            background-image: url('data:image/png;base64,{background_image}');
+            background-image: url('{background_image}');
             background-size: cover;
         }}
     </style>
