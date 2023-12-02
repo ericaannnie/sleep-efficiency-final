@@ -15,24 +15,6 @@ import os
 import imageio
 
 
-image_background = Image.open('Sleep Website Background.jpeg')
-
-# Display the background image using the st.image function
-st.image(image_background, use_container_width=True)
-
-# Apply the background image using CSS
-st.markdown(
-    """
-    <style>
-        body {
-            background-image: url('data:image/png;base64,{}');
-            background-size: cover;
-        }
-    </style>
-    """.format(image_background),
-    unsafe_allow_html=True
-)
-
 # Image
 image_sleep = Image.open('sleep.png')
 st.image(image_sleep, width=500, use_column_width=True)
