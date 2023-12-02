@@ -137,7 +137,7 @@ if app_mode == 'Introduction':
     st.markdown(" Completeness is defined as the ratio of non-missing values to total records in dataset.")
     # st.write("Total data length:", len(df))
     nonmissing = (df2.notnull().sum().round(2))
-    completeness= round(nonmissing.sum())/(len(df2),2)
+    completeness = round((nonmissing.sum()/len(df2), 2)
     st.write("Completeness ratio:",completeness)
     st.write(nonmissing)
     if completeness >= 0.80:
