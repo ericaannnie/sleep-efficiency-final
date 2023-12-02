@@ -229,15 +229,26 @@ if app_mode == 'Prediction':
     # Allow users to adjust the size of the training dataset using a slider in the sidebar
     test_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.70)
 
-    # Drop the selected variable from the dataset to prepare for prediction
-    new_df = df.drop(labels=select_variable, axis=1)
-    list_var = df2.columns
 
+    
+    from sklearn import preprocessing
+        
+    label_encoder = preprocessing.LabelEncoder()
+    pred_df['Gender'] = label_encoder.fit_transform(pred_df['Gender'])
+    pred_df['Occupation'] = label_encoder.fit_transform(pred_df['Occupation'])
+    pred_df['BMI Category'] = label_encoder.fit_transform(pred_df['BMI Category'])
+    pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
+    
     # Allow users to select explanatory variables for prediction
-    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder','BloodPressure_Upper_Value','BloodPressure_Lower_Value'])
+    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'])
 
+    # Drop the selected variable from the dataset to prepare for prediction
+    pred_df = df2.drop(labels=select_variable, axis=1)
+    list_var = pred_df.columns
+
+    
     # Define a function to perform linear regression prediction
-    def predict(target_choice, test_size, new_df, output_multi):
+    def predict(target_choice, test_size, df, output_multi):
         """
         This function performs linear regression prediction.
     
@@ -254,17 +265,17 @@ if app_mode == 'Prediction':
         - x, y: Full dataset split into explanatory variables and target variable.
         """
         
-        from sklearn import preprocessing
+        # from sklearn import preprocessing
         
-        label_encoder = preprocessing.LabelEncoder()
-        df['Gender'] = label_encoder.fit_transform(df['Gender'])
-        df['Occupation'] = label_encoder.fit_transform(df['Occupation'])
-        df['BMI Category'] = label_encoder.fit_transform(df['BMI Category'])
-        df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
+        # label_encoder = preprocessing.LabelEncoder()
+        # df['Gender'] = label_encoder.fit_transform(df['Gender'])
+        # df['Occupation'] = label_encoder.fit_transform(df['Occupation'])
+        # df['BMI Category'] = label_encoder.fit_transform(df['BMI Category'])
+        # df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df.drop(['Person ID', 'Occupation','Quality of Sleep'], axis = 1)
-        y = df['Quality of Sleep']
+        X = df.drop(['Occupation','Quality of Sleep'], axis = 1)
+        y = df[target_choice]
     
         ####################################################################################
         #new_df2 = new_df[output_multi]
@@ -272,15 +283,15 @@ if app_mode == 'Prediction':
         #y = df[target_choice]
     
         # Display the top 25 rows of the explanatory and target variables in the Streamlit app
-        col1, col2 = st.columns(2)
-        col1.subheader("Feature Columns top 25")
-        col1.write(X.head(25))
-        col2.subheader("Target Column top 25")
-        col2.write(y.head(25))
+        # col1, col2 = st.columns(2)
+        # col1.subheader("Feature Columns top 25")
+        # col1.write(X.head(25))
+        # col2.subheader("Target Column top 25")
+        # col2.write(y.head(25))
     
         # Split the data into training and testing sets
-        X = pd.get_dummies(data=X, drop_first=True)
-        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=40)
+        # X = pd.get_dummies(data=X, drop_first=True)
+        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2,random_state=42)
     
         # Initialize and train a linear regression model
         lm = LinearRegression()
@@ -292,7 +303,7 @@ if app_mode == 'Prediction':
         return X_train, X_test, y_train, y_test, predictions, X, y
     
     # Call the prediction function and store the results
-    X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, test_size, df, list_var)
+    X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, 0.2, pred_df, output_multi)
     
     # Display the results header in the Streamlit app
     st.subheader('🎯 Results')
