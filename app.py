@@ -190,7 +190,7 @@ if app_mode == 'Visualization':
     #fig3 = sns.pairplot(df3)
     #st.pyplot(fig3)
 
-    fig4 = sns.histplot(df3["Gender"])
+    fig4 = sns.histplot(data=df3, x="Gender")
     st.pyplot(fig4)
     
     # fig5 = sns.histplot(df2["BMI Category"])
