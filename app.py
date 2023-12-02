@@ -14,6 +14,21 @@ import altair as alt
 import os
 import imageio
 
+# Load background image
+background_image = Image.open('Sleep Website Background.jpeg')
+
+# Set background image using CSS
+st.markdown(
+    f"""
+    <style>
+        body {{
+            background-image: url('data:image/png;base64,{background_image}');
+            background-size: cover;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Image
 image_sleep = Image.open('sleep.png')
