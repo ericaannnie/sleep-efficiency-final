@@ -193,7 +193,7 @@ if app_mode == 'Visualization':
 
     
     tab2.subheader("Correlation Tab 📉")
-    df4 = df2.drop(['Gender', 'Occupation', 'BMI Category', 'Sleep Disorder'], axis = 1)
+    df4 = df2.drop(['Gender', 'Occupation', 'Sleep Disorder'], axis = 1)
     # Create a heatmap to show correlations between variables in the dataset
     fig, ax = plt.subplots(figsize=(width1, width1))
     sns.heatmap(df4.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax)
