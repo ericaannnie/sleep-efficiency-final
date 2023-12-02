@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-plt.switch_backend('Agg')
 import seaborn as sns
 
 from sklearn.linear_model import LinearRegression
@@ -191,9 +190,8 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df3)
     st.pyplot(fig3)
 
-    fig4 = sns.histplot(df2["Gender"])
+    fig4 = sns.histplot(df3["Gender"])
     st.pyplot(fig4)
-    plt.close()
     
     # fig5 = sns.histplot(df2["BMI Category"])
     # st.pyplot(fig5)
