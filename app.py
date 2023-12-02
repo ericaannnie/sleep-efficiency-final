@@ -19,7 +19,7 @@ st.markdown(
     f"""
     <style>
         .reportview-container {{
-            background: url({background_image}) center center;
+            background: url({image_background}) center center;
             background-size: cover;
         }}
     </style>
