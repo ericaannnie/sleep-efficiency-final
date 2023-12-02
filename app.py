@@ -245,8 +245,9 @@ if app_mode == 'Prediction':
     test_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.70)
 
     # Drop the selected variable from the dataset to prepare for prediction
-    pred_df = df2.drop(labels=select_variable, axis=1)
-    list_var = pred_df.columns
+    #pred_df = df2.drop(labels=select_variable, axis=1)
+    pred_df = df2
+    #list_var = pred_df.columns
 
     
     from sklearn import preprocessing
@@ -289,7 +290,7 @@ if app_mode == 'Prediction':
         # df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
         # Select the explanatory variables based on user input
        ####################################################################################
-        X = df.drop(['Occupation'], axis = 1)
+        X = df.drop(['Occupation', target_choice], axis = 1)
         y = df[target_choice]
 
     
