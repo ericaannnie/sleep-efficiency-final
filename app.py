@@ -14,13 +14,14 @@ import altair as alt
 import os
 import imageio
 
+image_background = Image.open('Sleep Website Background.jpeg')
 st.markdown(
-    """
+    f"""
     <style>
-        body {
-            background-image: url('Sleep Website Background.jpg');
+        .reportview-container {{
+            background: url({background_image}) center center;
             background-size: cover;
-        }
+        }}
     </style>
     """,
     unsafe_allow_html=True
