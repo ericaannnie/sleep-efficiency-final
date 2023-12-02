@@ -59,7 +59,7 @@ df2 = df.copy()
 list_var = df2.columns
 select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Quality of Sleep'])
 
-# Introduction page content
+#  page content
 if app_mode == 'Introduction':
     
     st.info("The dataset contains data on factors that affect sleep health.")
@@ -137,6 +137,7 @@ if app_mode == 'Introduction':
     st.markdown(" Completeness is defined as the ratio of non-missing values to total records in dataset.")
     # st.write("Total data length:", len(df))
     nonmissing = (df2.notnull().sum().round(2))
+    st.write(nonmissing)
     completeness= round(sum(nonmissing)/len(df2),2)
     st.write("Completeness ratio:",completeness)
     st.write(nonmissing)
