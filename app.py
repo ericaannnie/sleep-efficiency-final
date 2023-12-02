@@ -192,6 +192,7 @@ if app_mode == 'Visualization':
 
     fig4 = sns.histplot(df2["Gender"])
     st.pyplot(fig4)
+    plt.close()
     
     # fig5 = sns.histplot(df2["BMI Category"])
     # st.pyplot(fig5)
