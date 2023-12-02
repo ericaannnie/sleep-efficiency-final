@@ -35,7 +35,7 @@ image_sleep = Image.open('sleep.png')
 st.image(image_sleep, width=500, use_column_width=True)
 
 # Title
-st.title("Sleep Health Prediction")
+st.title("Sleep Quality Prediction")
 
 # Sidebar header and a separator
 st.sidebar.header("Dashboard")
