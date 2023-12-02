@@ -79,7 +79,7 @@ if app_mode == 'Introduction':
         padding: 10px; 
         margin: 5px;
         border-radius: 10px; 
-        width: 110px;
+        width: 130px;
         height: 250px;
         font-size: 15px;
     """
