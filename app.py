@@ -291,6 +291,7 @@ if app_mode == 'Prediction':
         # Select the explanatory variables based on user input
        ####################################################################################
         # X = df.drop(['Occupation', target_choice], axis = 1)
+        df = df.drop(['Occupation'], axis=1)
         X = df[output_multi]
         y = df[target_choice]
 
