@@ -244,6 +244,9 @@ if app_mode == 'Prediction':
     # Allow users to adjust the size of the training dataset using a slider in the sidebar
     test_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.70)
 
+    # Drop the selected variable from the dataset to prepare for prediction
+    pred_df = df2.drop(labels=select_variable, axis=1)
+    list_var = pred_df.columns
 
     
     from sklearn import preprocessing
@@ -257,9 +260,6 @@ if app_mode == 'Prediction':
     # Allow users to select explanatory variables for prediction
     output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'])
 
-    # Drop the selected variable from the dataset to prepare for prediction
-    pred_df = df2.drop(labels=select_variable, axis=1)
-    list_var = pred_df.columns
 
     
     # Define a function to perform linear regression prediction
