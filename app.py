@@ -14,6 +14,21 @@ import altair as alt
 import os
 import imageio
 
+# Load background image
+background_image = Image.open('Sleep Website Background.jpeg')
+
+# Set background image using CSS
+st.markdown(
+    f"""
+    <style>
+        body {{
+            background-image: url('{background_image}');
+            background-size: cover;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Image
 image_sleep = Image.open('sleep.png')
@@ -178,7 +193,7 @@ if app_mode == 'Visualization':
 
     
     tab2.subheader("Correlation Tab 📉")
-    df4 = df2.drop(['Gender', 'Occupation', 'BMI Category', 'Sleep Disorder'], axis = 1)
+    df4 = df2.drop(['Gender', 'Occupation', 'Sleep Disorder'], axis = 1)
     # Create a heatmap to show correlations between variables in the dataset
     fig, ax = plt.subplots(figsize=(width1, width1))
     sns.heatmap(df4.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax)
@@ -190,7 +205,7 @@ if app_mode == 'Visualization':
     #fig3 = sns.pairplot(df3)
     #st.pyplot(fig3)
 
-    fig4 = sns.histplot(data=df3, x="Gender")
+    fig4 = sns.histplot(data=df, x="Gender")
     st.pyplot(fig4)
     
     # fig5 = sns.histplot(df2["BMI Category"])
@@ -276,6 +291,7 @@ if app_mode == 'Prediction':
        ####################################################################################
         X = df.drop(['Occupation','Quality of Sleep'], axis = 1)
         y = df[target_choice]
+
     
         ####################################################################################
         #new_df2 = new_df[output_multi]
