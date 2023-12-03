@@ -187,7 +187,7 @@ if app_mode == 'Visualization':
 
     # Content for the "Correlation" tab   
 
-        fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
+    fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
 
     # Plot each categorical variable
     sns.countplot(ax=axes[0], data=df, x="Gender")
