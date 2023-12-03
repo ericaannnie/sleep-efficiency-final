@@ -213,13 +213,13 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df2)
     st.pyplot(fig3)
 
-    fig4 = sns.catplot(data=df, x="Gender", kind="count", height=10)
+    fig4 = sns.catplot(data=df, x="Gender", kind="count", height=5, aspect=1.5)
     st.pyplot(fig4)
     
-    fig5 = sns.catplot(data=df, x="BMI Category", kind="count", height=10)
+    fig5 = sns.catplot(data=df, x="BMI Category", kind="count", height=5, aspect=1.5)
     st.pyplot(fig5)
 
-    fig6 = sns.catplot(data=df, x="Sleep Disorder", kind="count", height=10)
+    fig6 = sns.catplot(data=df, x="Sleep Disorder", kind="count", height=5, aspect=1.5)
     st.pyplot(fig6)
     
     # fig4 = sns.histplot(data=df, x="Gender")
