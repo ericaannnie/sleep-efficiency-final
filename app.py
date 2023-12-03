@@ -206,7 +206,7 @@ if app_mode == 'Visualization':
  
     # Display the plot in Streamlit
     #thing = st.pyplot(plot.get_figure())
-    tab2.write(plot.fig)
+    tab2.write(plot)
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
     #df3 = df2
