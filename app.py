@@ -42,7 +42,7 @@ st.sidebar.header("Dashboard")
 st.sidebar.markdown("---")
 
 #get model
-model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Logistic Regression'])
+model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Random Forest'])
     
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
 app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion'])
@@ -268,7 +268,7 @@ if app_mode == 'Prediction':
     pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
     
     # Allow users to select explanatory variables for prediction
-    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder'])
+    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender', 'Occupation'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender', 'Occupation'])
 
 
     
@@ -322,13 +322,24 @@ if app_mode == 'Prediction':
         X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = test_size,random_state=42)
     
         # Initialize and train a linear regression model
-        lm = LinearRegression()
-        lm.fit(X_train,y_train)
+        if model_mode == "Linear Regresion":
+            
+            lm = LinearRegression()
+            lm.fit(X_train,y_train)
+        
+            # Predict the target variable for the test set
+            predictions = lm.predict(X_test)
     
-        # Predict the target variable for the test set
-        predictions = lm.predict(X_test)
+            return X_train, X_test, y_train, y_test, predictions, X, y
+        else: 
+                        
+            rf = RandomForest()
+            rf.fit(X_train,y_train)
+        
+            # Predict the target variable for the test set
+            predictions = rf.predict(X_test)
     
-        return X_train, X_test, y_train, y_test, predictions, X, y
+            return X_train, X_test, y_train, y_test, predictions, X, y
 
         # Check if the DataFrame is not empty
     if pred_df.empty or len(output_multi) == 0 or select_variable not in pred_df.columns:
