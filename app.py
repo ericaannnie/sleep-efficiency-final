@@ -321,18 +321,23 @@ if app_mode == 'Prediction':
         predictions = lm.predict(X_test)
     
         return X_train, X_test, y_train, y_test, predictions, X, y
-    
-    # Call the prediction function and store the results
-    X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, 0.2, pred_df, output_multi)
-    
-    # Display the results header in the Streamlit app
-    st.subheader('🎯 Results')
-    
-    # Display prediction metrics
-    st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
-    st.write("2) The Mean Absolute Error of model is:", np.round(mt.mean_absolute_error(predictions,y_test  ),2))
-    st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions,y_test ),2))
-    st.write("4) The R-Square score of the model is " , np.round(mt.r2_score(predictions, y_test),2))
+
+        # Check if the DataFrame is not empty
+    if pred_df.empty or len(output_multi) == 0 or select_variable not in pred_df.columns:
+        st.warning("Please select at least one variable for prediction.")
+    else:
+        # Call the prediction function and store the results
+        X_train, X_test, y_train, y_test, predictions, X, y = predict(select_variable, 0.2, pred_df, output_multi)
+
+        # Display the results header in the Streamlit app
+        st.subheader('🎯 Results')
+
+        # Display prediction metrics
+        st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions) * 100, 2),
+                 "% variance of the target feature")
+        st.write("2) The Mean Absolute Error of the model is:", np.round(mt.mean_absolute_error(predictions, y_test), 2))
+        st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions, y_test), 2))
+        st.write("4) The R-Square score of the model is ", np.round(mt.r2_score(predictions, y_test), 2))
 
 #######
 
