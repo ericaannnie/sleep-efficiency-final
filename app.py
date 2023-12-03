@@ -319,7 +319,7 @@ if app_mode == 'Prediction':
     
         # Split the data into training and testing sets
         # X = pd.get_dummies(data=X, drop_first=True)
-        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size,random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X,y,0.2,random_state=42)
     
         # Initialize and train a linear regression model
         lm = LinearRegression()
