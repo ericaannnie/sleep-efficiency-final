@@ -221,6 +221,24 @@ if app_mode == 'Visualization':
 
     fig6 = sns.catplot(data=df, x="Sleep Disorder", kind="count", height=5, aspect=1.5)
     st.pyplot(fig6)
+
+    fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+    # Plot each categorical variable
+    sns.countplot(ax=axes[0], data=df, x="Gender")
+    sns.countplot(ax=axes[1], data=df, x="BMI Category")
+    sns.countplot(ax=axes[2], data=df, x="Sleep Disorder")
+
+    # Set titles for each subplot
+    axes[0].set_title("Gender")
+    axes[1].set_title("BMI Category")
+    axes[2].set_title("Sleep Disorder")
+
+    # Adjust layout
+    plt.tight_layout()
+
+    # Show the plots
+    st.pyplot(fig7)
     
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
