@@ -274,7 +274,7 @@ if app_mode == 'Prediction':
 
     
     # Define a function to perform linear regression prediction
-    def predict(target_choice, test_size, df, output_multi):
+    def predict(target_choice, test_size_1, df, output_multi):
         """
         This function performs linear regression prediction.
     
@@ -320,7 +320,7 @@ if app_mode == 'Prediction':
     
         # Split the data into training and testing sets
         # X = pd.get_dummies(data=X, drop_first=True)
-        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size,random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size_1,random_state=42)
     
         # Initialize and train a linear regression model
         lm = LinearRegression()
