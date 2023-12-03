@@ -211,7 +211,7 @@ if app_mode == 'Visualization':
     st.markdown("### Pairplot")
     df3 = df2
     fig3 = sns.pairplot(df2)
-    #st.pyplot(fig3)
+    st.pyplot(fig3)
 
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4)
