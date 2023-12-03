@@ -185,7 +185,25 @@ if app_mode == 'Visualization':
     # Display a bar chart for the selected variables
     st.bar_chart(data=df2, x=symbols[0], y=symbols[1], use_container_width=True)
 
-    # Content for the "Correlation" tab        
+    # Content for the "Correlation" tab   
+
+        fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+    # Plot each categorical variable
+    sns.countplot(ax=axes[0], data=df, x="Gender")
+    sns.countplot(ax=axes[1], data=df, x="BMI Category")
+    sns.countplot(ax=axes[2], data=df, x="Sleep Disorder")
+
+    # Set titles for each subplot
+    axes[0].set_title("Gender")
+    axes[1].set_title("BMI Category")
+    axes[2].set_title("Sleep Disorder")
+
+    # Adjust layout
+    plt.tight_layout()
+
+    # Show the plots
+    st.pyplot(fig7)
 
     
     #tab2.subheader("Correlation Tab 📉")
@@ -208,24 +226,6 @@ if app_mode == 'Visualization':
     df3 = df2
     fig3 = sns.pairplot(df2)
     st.pyplot(fig3)
-
-    fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
-
-    # Plot each categorical variable
-    sns.countplot(ax=axes[0], data=df, x="Gender")
-    sns.countplot(ax=axes[1], data=df, x="BMI Category")
-    sns.countplot(ax=axes[2], data=df, x="Sleep Disorder")
-
-    # Set titles for each subplot
-    axes[0].set_title("Gender")
-    axes[1].set_title("BMI Category")
-    axes[2].set_title("Sleep Disorder")
-
-    # Adjust layout
-    plt.tight_layout()
-
-    # Show the plots
-    st.pyplot(fig7)
     
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
