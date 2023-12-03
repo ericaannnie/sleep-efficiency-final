@@ -187,7 +187,7 @@ if app_mode == 'Visualization':
 
     # Content for the "Correlation" tab   
 
-    fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
+    fig1, axes = plt.subplots(1, 3, figsize=(15, 5))
 
     # Plot each categorical variable
     sns.countplot(ax=axes[0], data=df, x="Gender")
@@ -203,7 +203,7 @@ if app_mode == 'Visualization':
     plt.tight_layout()
 
     # Show the plots
-    st.pyplot(fig7)
+    st.pyplot(fig1)
 
     
     #tab2.subheader("Correlation Tab 📉")
@@ -224,8 +224,8 @@ if app_mode == 'Visualization':
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
     df3 = df2
-    fig3 = sns.pairplot(df2)
-    st.pyplot(fig3)
+    fig2 = sns.pairplot(df2)
+    st.pyplot(fig2)
     
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
