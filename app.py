@@ -506,6 +506,6 @@ if app_mode == 'Conclusion':
     st.markdown("")
     st.markdown("About Sleep Quality:")
     st.info("The higher your sleep duration, the bigger the positive impact on level of sleep quality.")
-    st.write("Increase sleep duration to have a greater chance at having a higher level of sleep quality.")
+    st.write("Increase sleep duration for a greater chance at having a better sleep quality.")
     st.info("The lower your stress level, the bigger the negative impact on level of sleep quality.")
-    st.write("Decrease stress level to have a greater chance at having a higher level of sleep quality.")
+    st.write("Decrease stress level for a greater chance at having a better sleep quality.")
