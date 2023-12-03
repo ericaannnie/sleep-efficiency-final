@@ -503,4 +503,7 @@ if app_mode == 'Conclusion':
     st.info("Both the low Mean Absolute Error and Mean Squared Error demonstrate that the model's predictions are accurate and have minimal errors.")
     st.markdown("")
     st.markdown("About Sleep Quality:")
-    st.info("Increase sleep duration to have the biggest positive impact on level of sleep quality. ")
+    st.info("The higher your sleep duration, the bigger the positive impact on level of sleep quality.")
+    st.write("Increase sleep duration to have a greater chance at having a higher level of sleep quality.")
+    st.info("The lower your stress level, the bigger the negative impact on level of sleep quality.")
+    st.write("Decrease stress level to have a greater chance at having a higher level of sleep quality.")
