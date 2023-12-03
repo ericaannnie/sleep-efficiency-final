@@ -114,7 +114,7 @@ if app_mode == 'Introduction':
     col9.markdown(f'<div style="{box_style}"><strong>Daily Steps</strong><br><br><br>Number of steps walked in a day</div>', unsafe_allow_html=True)
     col10.markdown(f'<div style="{box_style}"><strong>Sleep Disorder</strong><br><br><br>Whether a person has a sleep disorder or not</div>', unsafe_allow_html=True)
 ##############
-
+    st.markdown("")
 
 
     # Allow users to view either the top or bottom rows of the dataset
