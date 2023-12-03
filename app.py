@@ -209,8 +209,8 @@ if app_mode == 'Visualization':
     #tab2.write(fig)
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
-    #df3 = df2
-    #fig3 = sns.pairplot(df3)
+    df3 = df2
+    fig3 = sns.pairplot(df2)
     #st.pyplot(fig3)
 
     # fig4 = sns.histplot(data=df, x="Gender")
