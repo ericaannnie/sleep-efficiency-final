@@ -213,6 +213,8 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df2)
     st.pyplot(fig3)
 
+    fig4 = sns.catplot(data=df, x="Gender", kind="count")
+    st.pyplot(fig4)
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
     
