@@ -509,3 +509,8 @@ if app_mode == 'Conclusion':
     st.write("Increase sleep duration for a greater chance at having a better sleep quality.")
     st.info("The lower your stress level, the bigger the negative impact on level of sleep quality.")
     st.write("Decrease stress level for a greater chance at having a better sleep quality.")
+
+    st.image(
+            "https://sapro.moderncampus.com/hs-fs/hubfs/Destiny/Imported_Blog_Media/source-Apr-05-2022-02-33-39-07-PM.gif?width=904&height=530&name=source-Apr-05-2022-02-33-39-07-PM.gif",
+            width=400,
+        )
