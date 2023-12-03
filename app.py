@@ -192,21 +192,21 @@ if app_mode == 'Visualization':
     # Content for the "Correlation" tab        
 
     
-    tab2.subheader("Correlation Tab 📉")
+    #tab2.subheader("Correlation Tab 📉")
     no_cat_df = df2.drop(['Gender', 'BMI Category', 'Occupation', 'Sleep Disorder'], axis = 1)
     # Create a heatmap to show correlations between variables in the dataset
-    fig, ax = plt.subplots(figsize=(width1, width1))
+    #fig, ax = plt.subplots(figsize=(width1, width1))
     
     #fig = sns.heatmap(no_cat_df.corr())
 # , cmap=sns.cubehelix_palette(8), annot=True, ax=ax
     #st.pyplot(fig)
     #tab2.write(fig)
 
-    fig = sns.heatmap(no_cat_df.corr(), annot=True)
+    plot = sns.heatmap(no_cat_df.corr(), annot=True)
  
     # Display the plot in Streamlit
-    #thing = st.pyplot(plot.get_figure())
-    tab2.write(fig)
+    st.pyplot(plot.get_figure())
+    #tab2.write(fig)
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
     #df3 = df2
