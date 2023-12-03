@@ -205,7 +205,7 @@ if app_mode == 'Visualization':
     plot = sns.heatmap(no_cat_df.corr(), annot=True)
  
     # Display the plot in Streamlit
-    st.pyplot(plot.get_figure())
+    tab2.st.pyplot(plot.get_figure())
 
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
