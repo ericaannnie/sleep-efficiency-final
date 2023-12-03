@@ -498,3 +498,7 @@ if app_mode == 'Conclusion':
             width=400,
         )
     st.markdown("Increase sleep duration to have the biggest positive impact on level of sleep quality. ")
+    st.info("The model showcases a strong capability to predict sleep quality level based on the selected variables.")
+    st.info("The high R-squared value suggests that the model explains a substantial portion of the variability in sleep quality level.")
+    st.info("Both the low Mean Absolute Error and Mean Squared Error demonstrate that the model's predictions are accurate and have minimal errors.")
+    st.info("Increase sleep duration to have the biggest positive impact on level of sleep quality. ")
