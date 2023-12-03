@@ -213,15 +213,6 @@ if app_mode == 'Visualization':
     fig3 = sns.pairplot(df2)
     st.pyplot(fig3)
 
-    fig4 = sns.catplot(data=df, x="Gender", kind="count", height=5, aspect=1.5)
-    st.pyplot(fig4)
-    
-    fig5 = sns.catplot(data=df, x="BMI Category", kind="count", height=5, aspect=1.5)
-    st.pyplot(fig5)
-
-    fig6 = sns.catplot(data=df, x="Sleep Disorder", kind="count", height=5, aspect=1.5)
-    st.pyplot(fig6)
-
     fig7, axes = plt.subplots(1, 3, figsize=(15, 5))
 
     # Plot each categorical variable
