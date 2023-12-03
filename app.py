@@ -319,7 +319,7 @@ if app_mode == 'Prediction':
     
         # Split the data into training and testing sets
         # X = pd.get_dummies(data=X, drop_first=True)
-        X_train, X_test, y_train, y_test = train_test_split(X,y,0.20,random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = test_size,random_state=42)
     
         # Initialize and train a linear regression model
         lm = LinearRegression()
@@ -335,7 +335,7 @@ if app_mode == 'Prediction':
         st.warning("Please select at least one variable for prediction.")
     else:
         # Call the prediction function and store the results
-        X_train, X_test, y_train, y_test, predictions, X, y = predict_ml(select_variable, 0.20, pred_df, output_multi)
+        X_train, X_test, y_train, y_test, predictions, X, y = predict_ml(select_variable, test_size, pred_df, output_multi)
 
         # Display the results header in the Streamlit app
         st.subheader('🎯 Results')
