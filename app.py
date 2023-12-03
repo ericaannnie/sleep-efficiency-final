@@ -175,7 +175,7 @@ if app_mode == 'Visualization':
     width1 = st.sidebar.slider("plot width", 1, 25, 10)
 
     # Create tabs for different types of visualizations
-    tab1, tab2 = st.tabs(["Line Chart", "📈 Correlation"])
+    #tab1, tab2 = st.tabs(["Line Chart", "📈 Correlation"])
 
     # Content for the "Line Chart" tab
     tab1.subheader("Line Chart")
