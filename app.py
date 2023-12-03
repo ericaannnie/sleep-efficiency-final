@@ -329,7 +329,7 @@ if app_mode == 'Prediction':
         X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = test_size,random_state=42)
     
         # Initialize and train a linear regression model
-        if model_mode == "Linear Regresion":
+        if model_mode == "Linear Regression":
             
             lm = LinearRegression()
             lm.fit(X_train,y_train)
@@ -340,7 +340,7 @@ if app_mode == 'Prediction':
             return X_train, X_test, y_train, y_test, predictions, X, y
         else: 
                         
-            rf = RandomForest()
+            rf = RandomForestRegressor()
             rf.fit(X_train,y_train)
         
             # Predict the target variable for the test set
