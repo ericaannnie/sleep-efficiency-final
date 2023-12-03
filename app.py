@@ -277,7 +277,7 @@ if app_mode == 'Prediction':
     st.markdown("## Prediction")
 
     # Allow users to adjust the size of the training dataset using a slider in the sidebar
-    test_size = st.sidebar.number_input("Train Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.20)
+    test_size = st.sidebar.number_input("Test Set Size", min_value=0.00, step=0.01, max_value=1.00, value=0.20)
     # Drop the selected variable from the dataset to prepare for prediction
     #pred_df = df2.drop(labels=select_variable, axis=1)
     pred_df = df2
@@ -372,6 +372,7 @@ if app_mode == 'Prediction':
     else:
         # Call the prediction function and store the results
         X_train, X_test, y_train, y_test, predictions, X, y = predict_ml(select_variable, test_size, pred_df, output_multi)
+
 
         # Display the results header in the Streamlit app
         st.subheader('🎯 Results')
