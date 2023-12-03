@@ -497,7 +497,10 @@ if app_mode == 'Conclusion':
             "https://media.tenor.com/jQlbcSS2HgoAAAAd/tom-and-jerry-sleep.gif",
             width=400,
         )
+    st.markdown("About Model:")
     st.info("The model showcases a strong capability to predict sleep quality level based on the selected variables.")
     st.info("The high R-squared value suggests that the model explains a substantial portion of the variability in sleep quality level.")
     st.info("Both the low Mean Absolute Error and Mean Squared Error demonstrate that the model's predictions are accurate and have minimal errors.")
+    st.markdown("")
+    st.markdown("About Sleep Quality:")
     st.info("Increase sleep duration to have the biggest positive impact on level of sleep quality. ")
