@@ -497,12 +497,4 @@ if app_mode == 'Conclusion':
             "https://media.tenor.com/jQlbcSS2HgoAAAAd/tom-and-jerry-sleep.gif",
             width=400,
         )
-
-if app_mode == 'Conclusion':
-    # Display dataset details
-    st.markdown("### Key Takeaways")
-    st.image(
-            "https://media.tenor.com/jQlbcSS2HgoAAAAd/tom-and-jerry-sleep.gif",
-            width=400,
-        )
     st.markdown("Increase sleep duration to have the biggest positive impact on level of sleep quality. ")
