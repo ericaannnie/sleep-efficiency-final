@@ -178,7 +178,7 @@ if app_mode == 'Visualization':
     #tab1, tab2 = st.tabs(["Line Chart", "📈 Correlation"])
 
     # Content for the "Line Chart" tab
-    tab1.subheader("Line Chart")
+    #tab1.subheader("Line Chart")
     # Display a line chart for the selected variables
 
     
