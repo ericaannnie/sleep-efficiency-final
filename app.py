@@ -66,10 +66,6 @@ df2 = df.copy()
 #####################################################################
 
 
-
-
-
-
 # Dropdown menu for selecting which variable from the dataset to predict
 list_var = df2.columns
 select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Quality of Sleep'])
