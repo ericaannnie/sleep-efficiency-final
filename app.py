@@ -202,7 +202,7 @@ if app_mode == 'Visualization':
     #st.pyplot(fig)
     #tab2.write(fig)
 
-    plot = sns.heatmap(no_cat_df.corr(), annot=True)
+    plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax)
  
     # Display the plot in Streamlit
     st.pyplot(plot.get_figure())
