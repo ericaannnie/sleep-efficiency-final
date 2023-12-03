@@ -497,7 +497,7 @@ if app_mode == 'Conclusion':
     st.markdown("### Key Takeaways")
     st.image(
             "https://media.tenor.com/jQlbcSS2HgoAAAAd/tom-and-jerry-sleep.gif",
-            width=400,
+            width=500,
         )
     st.markdown("")
     st.markdown("")
