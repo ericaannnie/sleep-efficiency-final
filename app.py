@@ -215,6 +215,13 @@ if app_mode == 'Visualization':
 
     fig4 = sns.catplot(data=df, x="Gender", kind="count")
     st.pyplot(fig4)
+    
+    fig5 = sns.catplot(data=df, x="BMI Category", kind="count")
+    st.pyplot(fig5)
+
+    fig6 = sns.catplot(data=df, x="Sleep Disorder", kind="count")
+    st.pyplot(fig6)
+    
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
     
