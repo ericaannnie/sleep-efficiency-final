@@ -198,11 +198,12 @@ if app_mode == 'Visualization':
     fig, ax = plt.subplots(figsize=(width1, width1))
     fig = sns.heatmap(no_cat_df.corr())
 # , cmap=sns.cubehelix_palette(8), annot=True, ax=ax
-    tab2.write(fig)
+    st.pyplot(fig.fig)
+    #tab2.write(fig)
 
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
-    df3 = df2
+    #df3 = df2
     #fig3 = sns.pairplot(df3)
     #st.pyplot(fig3)
 
