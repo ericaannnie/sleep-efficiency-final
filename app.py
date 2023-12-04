@@ -684,7 +684,6 @@ if app_mode == 'Deployment':
     number8 = st.number_input(deploy_df.columns[7],1000, 10000, 5000, 100)
     number9 = st.number_input(deploy_df.columns[8],0, 2, 1)
     st.info("Sleep Disorder: 0 = Insomnia, 1 = No Sleep Disorder, 2 = Sleep Apnea")
-    st.markdown("<p style='font-size: 10px;'>Sleep Disorder: 0 = Insomnia, 1 = No Sleep Disorder, 2 = Sleep Apnea</p>", unsafe_allow_html=True)
    # number10 = st.number_input(deploy_df.columns[9],2)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
