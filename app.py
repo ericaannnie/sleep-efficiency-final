@@ -1,3 +1,11 @@
+import base64
+import pickle
+import time
+from urlib.parse import urlparse
+import plotly.express as px 
+import altair as alt
+import pandas_profiling
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -297,92 +305,223 @@ if app_mode == 'Prediction':
 
 
     
-    # Define a function to perform linear regression prediction
-    def predict_ml(target_choice, test_size, df, output_multi):
-        """
-        This function performs linear regression prediction.
+    # # Define a function to perform linear regression prediction
+    # def predict_ml(target_choice, test_size, df, output_multi):
+    #     """
+    #     This function performs linear regression prediction.
     
-        Parameters:
-        - target_choice: The target variable to be predicted.
-        - train_size: The proportion of the dataset to include in the training set.
-        - new_df: The dataframe without the target variable.
-        - output_multi: The explanatory variables selected by the user.
+    #     Parameters:
+    #     - target_choice: The target variable to be predicted.
+    #     - train_size: The proportion of the dataset to include in the training set.
+    #     - new_df: The dataframe without the target variable.
+    #     - output_multi: The explanatory variables selected by the user.
     
-        Returns:
-        - X_train, X_test: Training and testing data.
-        - y_train, y_test: Training and testing target values.
-        - predictions: Predicted values for the test set.
-        - x, y: Full dataset split into explanatory variables and target variable.
-        """
+    #     Returns:
+    #     - X_train, X_test: Training and testing data.
+    #     - y_train, y_test: Training and testing target values.
+    #     - predictions: Predicted values for the test set.
+    #     - x, y: Full dataset split into explanatory variables and target variable.
+    #     """
         
-        # from sklearn import preprocessing
         
-        # label_encoder = preprocessing.LabelEncoder()
-        # df['Gender'] = label_encoder.fit_transform(df['Gender'])
-        # df['Occupation'] = label_encoder.fit_transform(df['Occupation'])
-        # df['BMI Category'] = label_encoder.fit_transform(df['BMI Category'])
-        # df['Sleep Disorder'] = label_encoder.fit_transform(df['Sleep Disorder'])
-        # Select the explanatory variables based on user input
-       ####################################################################################
-        # X = df.drop(['Occupation', target_choice], axis = 1)
-        df = df.drop(['Occupation'], axis=1)
-        X = df[output_multi]
+    #     df = df.drop(['Occupation'], axis=1)
+    #     X = df[output_multi]
+    #     y = df[target_choice]
+
+       
+    #     X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = test_size,random_state=42)
+    
+    #     # Initialize and train a linear regression model
+    #     if model_mode == "Linear Regression":
+            
+    #         lm = LinearRegression()
+    #         lm.fit(X_train,y_train)
+        
+    #         # Predict the target variable for the test set
+    #         predictions = lm.predict(X_test)
+    
+    #         return X_train, X_test, y_train, y_test, predictions, X, y
+    #     else: 
+    #         from sklearn.ensemble import RandomForestRegressor            
+    #         rf = RandomForestRegressor()
+    #         rf.fit(X_train,y_train)
+        
+    #         # Predict the target variable for the test set
+    #         predictions = rf.predict(X_test)
+    
+    #         return X_train, X_test, y_train, y_test, predictions, X, y
+
+    #     # Check if the DataFrame is not empty
+    # if pred_df.empty or len(output_multi) == 0 or select_variable not in pred_df.columns:
+    #     st.warning("Please select at least one variable for prediction.")
+    # else:
+    #     # Call the prediction function and store the results
+    #     X_train, X_test, y_train, y_test, predictions, X, y = predict_ml(select_variable, test_size, pred_df, output_multi)
+
+
+    #     # Display the results header in the Streamlit app
+    #     st.subheader('🎯 Results')
+
+    #     # Display prediction metrics
+    #     st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions) * 100, 2),
+    #              "% variance of the target feature")
+    #     st.write("2) The Mean Absolute Error of the model is:", np.round(mt.mean_absolute_error(predictions, y_test), 2))
+    #     st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions, y_test), 2))
+    #     st.write("4) The R-Square score of the model is ", np.round(mt.r2_score(predictions, y_test), 2))
+
+
+
+
+###############################################################################################################################################################################################
+###############################################################################################################################################################################################
+
+    @st.cache_resource
+    def predict(target_choice,test_size, df,output_multi):
+        #independent variables / explanatory variables
+        #choosing column for target
+        df = df.drop(['Occupation'], axis = 1)
+        X =  df[output_multi]
         y = df[target_choice]
 
-    
-        ####################################################################################
-        #new_df2 = new_df[output_multi]
-       # x = new_df2
-        #y = df[target_choice]
-    
-        # Display the top 25 rows of the explanatory and target variables in the Streamlit app
-        # col1, col2 = st.columns(2)
-        # col1.subheader("Feature Columns top 25")
-        # col1.write(X.head(25))
-        # col2.subheader("Target Column top 25")
-        # col2.write(y.head(25))
-    
-        # Split the data into training and testing sets
-        # X = pd.get_dummies(data=X, drop_first=True)
-        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size = test_size,random_state=42)
-    
-        # Initialize and train a linear regression model
-        if model_mode == "Linear Regression":
-            
-            lm = LinearRegression()
-            lm.fit(X_train,y_train)
-        
-            # Predict the target variable for the test set
-            predictions = lm.predict(X_test)
-    
-            return X_train, X_test, y_train, y_test, predictions, X, y
-        else: 
-            from sklearn.ensemble import RandomForestRegressor            
-            rf = RandomForestRegressor()
-            rf.fit(X_train,y_train)
-        
-            # Predict the target variable for the test set
-            predictions = rf.predict(X_test)
-    
-            return X_train, X_test, y_train, y_test, predictions, X, y
+        X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=test_size, random_state = 42)
+        lm = MODELS[model_mode]()
+        model = lm.fit(X_train,y_train)
+        predictions = lm.predict(X_test)
+        return lm,X_train,y_test,predictions,model
 
-        # Check if the DataFrame is not empty
-    if pred_df.empty or len(output_multi) == 0 or select_variable not in pred_df.columns:
-        st.warning("Please select at least one variable for prediction.")
+    # Mlflow tracking
+    track_with_mlflow = st.checkbox("Track with mlflow? 🛤️")
+
+    # Model training
+    start_training = st.button("Start training")
+    if not start_training:
+        st.stop()
+
+    if mlflow.active_run():
+        mlflow.end_run()
+    if track_with_mlflow:
+        #mlflow.set_tracking_uri("./model_metrics")
+        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+        experiment_name = select_dataset
+        st.write(experiment_name)
+        mlflow.start_run()
+        try:
+            # creating a new experiment
+            exp_id = mlflow.create_experiment(name=experiment_name)
+        except Exception as e:
+            exp_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
+
+        #mlflow.set_experiment(select_dataset)
+        mlflow.log_param('model', MODELS[model_mode])
+        mlflow.log_param('features', feature_choice)
+    
+    lm,X_train,y_test,predictions,model = predict(target_choice,train_size,new_df,feature_choice)
+
+    
+    # Model evaluation
+    #preds_train = model.predict(X_train)
+    #preds_test = model.predict(X_test)
+    #preds_test = lm.predict(X_test)
+    # if problem_type=="classification":
+    #     st.subheader('🎯 Results')
+    #     metric_name = "f1_score"
+    #     metric_train = f1_score(y_train, preds_train, average='micro')
+    #     metric_test = f1_score(y_test, preds_test, average='micro')
+    # else:
+    #     st.subheader('🎯 Results')
+    mae = np.round(mt.mean_absolute_error(y_test, predictions ),2)
+    mse = np.round(mt.mean_squared_error(y_test, predictions),2)
+    r2 = np.round(mt.r2_score(y_test, predictions),2)
+    
+    #metric_name = "r2_score"
+    #metric_test = r2_score(y_test, preds_test)
+    #st.write(metric_name+"_train", round(metric_train, 3))
+    #st.write(metric_name+"_test", round(metric_test, 3))
+    if track_with_mlflow:
+       # mlflow.sklearn.log_model(lm, "top_model_v1")
+        mlflow.log_metric("mae", mae)
+        mlflow.log_metric("mse", mse)
+        mlflow.log_metric("r2", r2)
+        mlflow.end_run()
+    
+
+    # Save the model to a PKL file
+    with open('model.pkl', 'wb') as file:
+        pickle.dump(lm, file)
+
+    # model_code = st.checkbox("See the model code? 👀")
+    # if model_code:
+    #     code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
+    #     code1 = '''lm = LinearRegression()'''
+    #     code2 = '''lm.fit(X_train,y_train)'''
+    #     code3 = '''predictions = lm.predict(X_test)'''
+    #     st.code(code, language='python')
+    #     st.code(code1, language='python')
+    #     st.code(code2, language='python')
+    #     st.code(code3, language='python')
+    
+    st.subheader('🎯 Results')
+    if model_mode == 'Linear Regression':
+        st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
+        st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
+        st.write("3) MSE: ", np.round(mse))
+        st.write("4) The R-Square score of the model is " , np.round(r2))
     else:
-        # Call the prediction function and store the results
-        X_train, X_test, y_train, y_test, predictions, X, y = predict_ml(select_variable, test_size, pred_df, output_multi)
+        acc = accuracy_score(y_test, predictions)
+        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
+        f1_score = f1_score(y_test, predictions, average='weighted')
+        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
+        precision_score = precision_score(y_test, predictions, average='weighted')
+        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
+        recall_score = recall_score(y_test, predictions, average='weighted')
+        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
+
+    @st.cache_resource
+    def download_file():
+        file_path = 'model.pkl'  # Replace with the actual path to your model.pkl file
+        with open(file_path, 'rb') as file:
+            contents = file.read()
+        b64 = base64.b64encode(contents).decode()
+        href = f'<a href="data:file/pkl;base64,{b64}" download="model.pkl">Download model.pkl file</a>'
+        st.markdown(href, unsafe_allow_html=True)
+
+        st.title("Download Model Example")
+        st.write("Click the button below to download the model.pkl file.")
+    if st.button("Download"):
+        download_file()
 
 
-        # Display the results header in the Streamlit app
-        st.subheader('🎯 Results')
 
-        # Display prediction metrics
-        st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions) * 100, 2),
-                 "% variance of the target feature")
-        st.write("2) The Mean Absolute Error of the model is:", np.round(mt.mean_absolute_error(predictions, y_test), 2))
-        st.write("3) MSE: ", np.round(mt.mean_squared_error(predictions, y_test), 2))
-        st.write("4) The R-Square score of the model is ", np.round(mt.r2_score(predictions, y_test), 2))
+
+###############################################################################################################################################################################################
+###############################################################################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #######
 
