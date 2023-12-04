@@ -659,6 +659,7 @@ if app_mode == 'Deployment':
     pred_df['BMI Category'] = label_encoder.fit_transform(pred_df['BMI Category'])
     pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
     deploy_df = pred_df
+    deploy_df = deploy_df.drop(['Occupation'], axis = 1)
     # df = pd.read_csv("SleepHealth.csv")
     # deploy_df= df.drop(labels='alcohol', axis=1)
     list_var = deploy_df.columns
