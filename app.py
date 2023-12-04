@@ -422,7 +422,7 @@ if app_mode == 'Prediction':
         mlflow.log_param('model', MODELS[model_mode])
         mlflow.log_param('features', output_multi)
     
-    lm,X_train,y_test,predictions,model = predict(select_variable,test_size,new_df,feature_choice)
+    lm,X_train,y_test,predictions,model = predict(select_variable,test_size,df,feature_choice)
 
     
     # Model evaluation
