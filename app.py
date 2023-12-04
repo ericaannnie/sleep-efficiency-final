@@ -473,6 +473,8 @@ if app_mode == 'Prediction':
     with open('model.pkl', 'wb') as file:
         pickle.dump(lm, file)
 
+    st.write(type(predictions)
+    st.write(type(y_test)
     # model_code = st.checkbox("See the model code? 👀")
     # if model_code:
     #     code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
