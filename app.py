@@ -647,7 +647,17 @@ if app_mode == 'Deployment':
     logged_model = f'./mlruns/2/1e00e5c9fdff429e81eb3484de2d1c2b/artifacts/DecisionTreeRegressor'
     loaded_model = mlflow.pyfunc.load_model(logged_model)
 
+    pred_df = df2
+    #list_var = pred_df.columns
 
+    
+    from sklearn import preprocessing
+        
+    label_encoder = preprocessing.LabelEncoder()
+    pred_df['Gender'] = label_encoder.fit_transform(pred_df['Gender'])
+    pred_df['Occupation'] = label_encoder.fit_transform(pred_df['Occupation'])
+    pred_df['BMI Category'] = label_encoder.fit_transform(pred_df['BMI Category'])
+    pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
     deploy_df = pred_df
     # df = pd.read_csv("SleepHealth.csv")
     # deploy_df= df.drop(labels='alcohol', axis=1)
