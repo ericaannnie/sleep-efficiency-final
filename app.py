@@ -372,6 +372,7 @@ if app_mode == 'Prediction':
         
     #         # Predict the target variable for the test set
     #         predictions = rf.predict(X_test)
+
     
     #         return X_train, X_test, y_train, y_test, predictions, X, y
 
@@ -492,16 +493,21 @@ if app_mode == 'Prediction':
     else:
         #y_test = np.argmax(y_test)
         #predictions=np.argmax(predictions)
-        y_test = y_test.to_numpy()
-        #predictions = predictions.to_numpy()
-        acc = accuracy_score(y_test, predictions)
-        st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
-        f1_score = f1_score(y_test, predictions, average='weighted')
-        st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
-        precision_score = precision_score(y_test, predictions, average='weighted')
-        st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
-        recall_score = recall_score(y_test, predictions, average='weighted')
-        st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
+        # y_test = y_test.to_numpy()
+        # #predictions = predictions.to_numpy()
+        # acc = accuracy_score(y_test, predictions)
+        # st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
+        # f1_score = f1_score(y_test, predictions, average='weighted')
+        # st.write("2) Model F1 Score (in %):", np.round(f1_score*100,2))
+        # precision_score = precision_score(y_test, predictions, average='weighted')
+        # st.write("3) Model Precision Score (in %):", np.round(precision_score*100,2))
+        # recall_score = recall_score(y_test, predictions, average='weighted')
+        # st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
+        st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
+        st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
+        st.write("3) MSE: ", np.round(mse))
+        st.write("4) The R-Square score of the model is " , np.round(r2))
+        
 
     @st.cache_resource
     def download_file():
