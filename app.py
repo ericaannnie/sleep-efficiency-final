@@ -648,7 +648,7 @@ if app_mode == 'Deployment':
     loaded_model = mlflow.pyfunc.load_model(logged_model)
 
 
-    deploy_df = df_pred
+    deploy_df = pred_df
     # df = pd.read_csv("SleepHealth.csv")
     # deploy_df= df.drop(labels='alcohol', axis=1)
     list_var = deploy_df.columns
