@@ -234,10 +234,10 @@ if app_mode == 'Introduction':
         
         lm,X_train,y_test,predictions,model = predict(select_variable,test_size,pred_df,output_multi)
 
-    # Stop tracking and get emissions
-    emissions = 100
+# Stop tracking and get emissions
+emissions = 100
 
-    print(f"Total emissions: {emissions} kg")
+print(f"Total emissions: {emissions} kg")
     
     
     
