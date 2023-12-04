@@ -196,6 +196,7 @@ if app_mode == 'Introduction':
     tracker.start()
 
     df = df.drop(['Occupation'], axis = 1)
+    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'])
     X =  df[output_multi]
     y = df[target_choice]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
