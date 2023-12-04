@@ -237,7 +237,7 @@ if app_mode == 'Introduction':
 # Stop tracking and get emissions
 emissions = 100
 
-print(df"Total emissions: {emissions} kg")
+st.write(f"Total emissions: {emissions} kg")
     
     
     
