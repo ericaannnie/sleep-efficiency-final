@@ -674,7 +674,7 @@ if app_mode == 'Deployment':
     number7 = st.number_input(deploy_df.columns[6],6)
     number8 = st.number_input(deploy_df.columns[7],1.9)
     number9 = st.number_input(deploy_df.columns[8],2)
-    
+    number10 = st.number_input(deploy_df.columns[9],2)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
          deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
