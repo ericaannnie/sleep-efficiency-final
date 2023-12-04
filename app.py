@@ -35,6 +35,13 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error, r2_score
 
 
+MODELS = {
+    "Linear Regression": LinearRegression, 
+    "Random Forest': RandomForestRegressor
+}
+
+
+
 # Load background image
 background_image = Image.open('Sleep Website Background.jpeg')
 
