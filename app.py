@@ -671,7 +671,7 @@ if app_mode == 'Deployment':
     number3 = st.number_input(deploy_df.columns[2],4,12, 7)
     number4 = st.number_input(deploy_df.columns[3],30, 90, 60)
     number5 = st.number_input(deploy_df.columns[4],1, 10, 5)
-    number6 = st.number_input(deploy_df.columns[5],1, 2, 0)
+    number6 = st.number_input(deploy_df.columns[5],0, 2, 0)
     number7 = st.number_input(deploy_df.columns[6],50, 100, 75, 5)
     number8 = st.number_input(deploy_df.columns[7],1000, 10000, 5000, 100)
     number9 = st.number_input(deploy_df.columns[8],0, 2, 1)
