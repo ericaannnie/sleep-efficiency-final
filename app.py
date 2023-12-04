@@ -472,9 +472,6 @@ if app_mode == 'Prediction':
     # Save the model to a PKL file
     with open('model.pkl', 'wb') as file:
         pickle.dump(lm, file)
-
-    st.write(type(predictions)
-    st.write(type(y_test)
     # model_code = st.checkbox("See the model code? 👀")
     # if model_code:
     #     code = '''X_train, X_test, y_train, y_test = train_test_split(x,y,test_size=train_size)'''
@@ -495,6 +492,8 @@ if app_mode == 'Prediction':
     else:
         #y_test = np.argmax(y_test)
         #predictions=np.argmax(predictions)
+        y_test = y_test.flatten()
+        predictions = predictions.flatten()
         acc = accuracy_score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
