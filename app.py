@@ -73,7 +73,7 @@ st.sidebar.markdown("---")
 model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Random Forest'])
     
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
-app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion','Chatbot'])
+app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
 select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepHealth"])
