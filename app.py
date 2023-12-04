@@ -420,7 +420,7 @@ if app_mode == 'Prediction':
 
         #mlflow.set_experiment(select_dataset)
         mlflow.log_param('model', MODELS[model_mode])
-        mlflow.log_param('features', feature_choice)
+        mlflow.log_param('features', output_multi)
     
     lm,X_train,y_test,predictions,model = predict(target_choice,train_size,new_df,feature_choice)
 
