@@ -644,7 +644,7 @@ if app_mode == 'Deployment':
     id = st.text_input('ID Model', '1e00e5c9fdff429e81eb3484de2d1c2b')
 
     # Load model for prediction
-    logged_model = f'/mlruns/2/1e00e5c9fdff429e81eb3484de2d1c2b/artifacts/DecisionTreeRegressor'
+    logged_model = f'./mlruns/2/1e00e5c9fdff429e81eb3484de2d1c2b/artifacts/DecisionTreeRegressor'
     loaded_model = mlflow.pyfunc.load_model(logged_model)
 
 
