@@ -236,8 +236,7 @@ if app_mode == 'Introduction':
 
     # Stop tracking and get emissions
     emissions = tracker.stop()
-
-    st.write(f"Total emissions: {emissions} kg")
+    st.write(f"Total emissions: {(round(emissions,3))} kg")
     
     
     
