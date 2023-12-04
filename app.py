@@ -197,42 +197,42 @@ if app_mode == 'Introduction':
 
     @st.cache_resource
     def predict(target_choice,test_size, df,output_multi):
-    df = df.drop(['Occupation'], axis = 1)
-    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'])
-    X =  df[output_multi]
-    y = df[target_choice]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-    model = LinearRegression()
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_test, y_pred)
-    print(f"Mean Squared Error: {mse}")
-
-    # Your code goes here
-    # For example, a machine learning training process or any computation-heavy task
-    start_training = st.button("Start training")
-    if not start_training:
-        st.stop()
-
-    if mlflow.active_run():
-        mlflow.end_run()
-    if track_with_mlflow:
-        #mlflow.set_tracking_uri("./model_metrics")
-        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
-        experiment_name = select_dataset
-        st.write(experiment_name)
-        mlflow.start_run()
-        try:
-            # creating a new experiment
-            exp_id = mlflow.create_experiment(name=experiment_name)
-        except Exception as e:
-            exp_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
-
-        #mlflow.set_experiment(select_dataset)
-        mlflow.log_param('model', MODELS[model_mode])
-        mlflow.log_param('features', output_multi)
+        df = df.drop(['Occupation'], axis = 1)
+        output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'])
+        X =  df[output_multi]
+        y = df[target_choice]
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+        model = LinearRegression()
+        model.fit(X_train, y_train)
+        y_pred = model.predict(X_test)
+        mse = mean_squared_error(y_test, y_pred)
+        print(f"Mean Squared Error: {mse}")
     
-    lm,X_train,y_test,predictions,model = predict(select_variable,test_size,pred_df,output_multi)
+        # Your code goes here
+        # For example, a machine learning training process or any computation-heavy task
+        start_training = st.button("Start training")
+        if not start_training:
+            st.stop()
+    
+        if mlflow.active_run():
+            mlflow.end_run()
+        if track_with_mlflow:
+            #mlflow.set_tracking_uri("./model_metrics")
+            tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+            experiment_name = select_dataset
+            st.write(experiment_name)
+            mlflow.start_run()
+            try:
+                # creating a new experiment
+                exp_id = mlflow.create_experiment(name=experiment_name)
+            except Exception as e:
+                exp_id = mlflow.get_experiment_by_name(experiment_name).experiment_id
+    
+            #mlflow.set_experiment(select_dataset)
+            mlflow.log_param('model', MODELS[model_mode])
+            mlflow.log_param('features', output_multi)
+        
+        lm,X_train,y_test,predictions,model = predict(select_variable,test_size,pred_df,output_multi)
 
     # Stop tracking and get emissions
     emissions = tracker.stop()
