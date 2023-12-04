@@ -237,7 +237,7 @@ if app_mode == 'Introduction':
 # Stop tracking and get emissions
 emissions = 100
 
-print(f"Total emissions: {emissions} kg")
+print(df"Total emissions: {emissions} kg")
     
     
     
