@@ -325,7 +325,7 @@ if app_mode == 'Prediction':
     pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
     
     # Allow users to select explanatory variables for prediction
-    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'])
+    output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Stress Level','Heart Rate'])
 
 
     
