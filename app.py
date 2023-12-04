@@ -659,7 +659,7 @@ if app_mode == 'Deployment':
     pred_df['BMI Category'] = label_encoder.fit_transform(pred_df['BMI Category'])
     pred_df['Sleep Disorder'] = label_encoder.fit_transform(pred_df['Sleep Disorder'])
     deploy_df = pred_df
-    deploy_df = deploy_df.drop(['Occupation'], axis = 1)
+    deploy_df = deploy_df.drop(['Occupation', "Quality of Sleep"], axis = 1)
     # df = pd.read_csv("SleepHealth.csv")
     # deploy_df= df.drop(labels='alcohol', axis=1)
     list_var = deploy_df.columns
@@ -674,11 +674,11 @@ if app_mode == 'Deployment':
     number7 = st.number_input(deploy_df.columns[6],6)
     number8 = st.number_input(deploy_df.columns[7],1.9)
     number9 = st.number_input(deploy_df.columns[8],2)
-    number10 = st.number_input(deploy_df.columns[9],2)
+   # number10 = st.number_input(deploy_df.columns[9],2)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
          deploy_df.columns[3]:[number4], deploy_df.columns[4]:[number5], deploy_df.columns[5]:[number6], deploy_df.columns[6]:[number7],
-         deploy_df.columns[7]:[number8]})
+         deploy_df.columns[7]:[number8],deploy_df.columns[8]:[number9]})
     # Predict on a Pandas DataFrame.
     #import pandas as pd
     st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
