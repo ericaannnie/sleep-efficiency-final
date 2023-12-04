@@ -493,7 +493,7 @@ if app_mode == 'Prediction':
         #y_test = np.argmax(y_test)
         #predictions=np.argmax(predictions)
         y_test = y_test..to_numpy()
-        predictions = predictions..to_numpy()
+        predictions = predictions.to_numpy()
         acc = accuracy_score(y_test, predictions)
         st.write("1) Model Accuracy (in %):", np.round(acc*100,2))
         f1_score = f1_score(y_test, predictions, average='weighted')
