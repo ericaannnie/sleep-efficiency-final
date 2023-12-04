@@ -73,7 +73,7 @@ st.sidebar.markdown("---")
 model_mode = st.sidebar.selectbox('🔎 Select Model',['Linear Regression','Random Forest'])
     
 # Dropdown menu for selecting the page mode (Introduction, Visualization, Prediction, Deployment)
-app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion'])
+app_mode = st.sidebar.selectbox('🔎 Select Page',['Introduction','Visualization','Prediction','Deployment','Conclusion','Chatbot'])
 
 # Dropdown menu for selecting the dataset (currently only "Salary" is available)
 select_dataset =  st.sidebar.selectbox('💾 Select Dataset',["SleepHealth"])
@@ -549,7 +549,7 @@ if app_mode == 'Prediction':
 
 #######
 
-if app_mode == 'Chatbot 🤖':
+if app_mode == 'Chatbot':
     st.markdown("# :violet[ Your Personal Chatbot 🤖]")
    # OPENAI_API_KEY = "YOUR_API_KEY"
     # Set org ID and API key
