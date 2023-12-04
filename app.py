@@ -217,12 +217,13 @@ if app_mode == 'Visualization':
     # Content for the "Correlation" tab   
 
     fig1, axes = plt.subplots(1, 3, figsize=(15, 5))
-
+    st.markdown("")
+    st.markdown("### Category Frequencies")
     # Plot each categorical variable
     sns.countplot(ax=axes[0], data=df, x="Gender")
     sns.countplot(ax=axes[1], data=df, x="BMI Category")
     sns.countplot(ax=axes[2], data=df, x="Sleep Disorder")
-
+    
     # Set titles for each subplot
     axes[0].set_title("Gender")
     axes[1].set_title("BMI Category")
@@ -241,6 +242,8 @@ if app_mode == 'Visualization':
     #fig, ax = plt.subplots(figsize=(width1, width1))
     ####plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
     ####st.pyplot(plot.get_figure())
+    st.markdown("")
+    st.markdown("### Heat Map")
     fig2, ax2 = plt.subplots(figsize=(width1, width1))
     #tab2.subheader("Correlation Tab 📉")
     no_cat_df = df2.drop(['Gender', 'BMI Category', 'Occupation', 'Sleep Disorder'], axis=1)
@@ -262,6 +265,7 @@ if app_mode == 'Visualization':
     #st.pyplot(plot.get_figure())
     #tab2.write(fig)
     # Display a pairplot for the first five variables in the dataset
+    st.markdown("")
     st.markdown("### Pairplot")
     df3 = df2
     fig3 = sns.pairplot(df2)
