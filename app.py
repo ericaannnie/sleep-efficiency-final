@@ -236,9 +236,19 @@ if app_mode == 'Visualization':
 
     
     #tab2.subheader("Correlation Tab 📉")
-    no_cat_df = df2.drop(['Gender', 'BMI Category', 'Occupation', 'Sleep Disorder'], axis = 1)
+    ####no_cat_df = df2.drop(['Gender', 'BMI Category', 'Occupation', 'Sleep Disorder'], axis = 1)
     # Create a heatmap to show correlations between variables in the dataset
     #fig, ax = plt.subplots(figsize=(width1, width1))
+    ####plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
+    ####st.pyplot(plot.get_figure())
+    fig2, ax2 = plt.subplots(figsize=(width1, width1))
+    #tab2.subheader("Correlation Tab 📉")
+    no_cat_df = df2.drop(['Gender', 'BMI Category', 'Occupation', 'Sleep Disorder'], axis=1)
+    # Create a heatmap to show correlations between variables in the dataset
+    sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True, ax=ax2)
+
+    # Display the heatmap in Streamlit
+    st.pyplot(fig2)
     
     #fig = sns.heatmap(no_cat_df.corr())
 # , cmap=sns.cubehelix_palette(8), annot=True, ax=ax
@@ -254,11 +264,9 @@ if app_mode == 'Visualization':
     # Display a pairplot for the first five variables in the dataset
     st.markdown("### Pairplot")
     df3 = df2
-    fig2 = sns.pairplot(df2)
-    st.pyplot(fig2)
+    fig3 = sns.pairplot(df2)
+    st.pyplot(fig3)
 
-    plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
-    st.pyplot(plot.get_figure())
     
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
