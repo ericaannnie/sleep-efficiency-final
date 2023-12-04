@@ -103,7 +103,7 @@ select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Qual
 if app_mode == 'Introduction':
     
     st.info("The dataset contains data on factors that affect sleep health.")
-    st.info("This website will be able to predict your quality of sleep on a scale of 0 to 10.")
+    st.info("This website will be able to predict your quality of sleep on a scale of 1 to 10.")
    
     # Display dataset details
     st.markdown("### 00 - Show Dataset")
@@ -129,7 +129,7 @@ if app_mode == 'Introduction':
     col1.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>The gender of the person (Male/Female)</div>', unsafe_allow_html=True)
     col2.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age of the person in years</div>', unsafe_allow_html=True)
     col3.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br><br>The number of hours spent sleeping in a day</div>', unsafe_allow_html=True)
-    col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>Subjective rating of sleep quality (0-10)</div>', unsafe_allow_html=True)
+    col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>Subjective rating of sleep quality (1-10)</div>', unsafe_allow_html=True)
     col5.markdown(f'<div style="{box_style}"><strong>Physical Activity Level</strong><br><br>Number of minutes spent exercising in a day</div>', unsafe_allow_html=True)
 
     col6,col7,col8,col9,col10 = st.columns(5)
