@@ -644,7 +644,7 @@ if app_mode == 'Deployment':
     id = st.text_input('ID Model', '1e00e5c9fdff429e81eb3484de2d1c2b')
 
     # Load model for prediction
-    logged_model = f'/content/mlruns/2/{id}/artifacts'
+    logged_model = f'/mlruns/2/{id}/artifacts'
     loaded_model = mlflow.pyfunc.load_model(logged_model)
 
 
