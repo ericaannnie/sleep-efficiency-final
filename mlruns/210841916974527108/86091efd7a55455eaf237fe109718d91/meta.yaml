@@ -1,0 +1,15 @@
+artifact_uri: file:///content/mlruns/210841916974527108/86091efd7a55455eaf237fe109718d91/artifacts
+end_time: 1701647045097
+entry_point_name: ''
+experiment_id: '210841916974527108'
+lifecycle_stage: active
+run_id: 86091efd7a55455eaf237fe109718d91
+run_name: nebulous-cod-675
+run_uuid: 86091efd7a55455eaf237fe109718d91
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701647037803
+status: 3
+tags: []
+user_id: root
