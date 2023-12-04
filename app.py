@@ -21,7 +21,7 @@ from PIL import Image
 import altair as alt
 import os
 import imageio
-
+from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
 #
 import mlflow
 import mlflow.sklearn
