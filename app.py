@@ -195,6 +195,8 @@ if app_mode == 'Introduction':
     # Start tracking
     tracker.start()
 
+    @st.cache_resource
+    def predict(target_choice,test_size, df,output_multi):
     df = df.drop(['Occupation'], axis = 1)
     output_multi = st.multiselect("Select Explanatory Variables",  ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'], default = ['Physical Activity Level','Sleep Duration','Stress Level','BMI Category','Heart Rate','Daily Steps','Sleep Disorder', 'Gender'])
     X =  df[output_multi]
