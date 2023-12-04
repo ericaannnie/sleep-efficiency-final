@@ -245,10 +245,10 @@ if app_mode == 'Visualization':
     #st.pyplot(fig)
     #tab2.write(fig)
 
-    plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
+    #plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
  
     # Display the plot in Streamlit
-    st.pyplot(plot)
+    #st.pyplot(plot)
     #st.pyplot(plot.get_figure())
     #tab2.write(fig)
     # Display a pairplot for the first five variables in the dataset
@@ -256,6 +256,9 @@ if app_mode == 'Visualization':
     df3 = df2
     fig2 = sns.pairplot(df2)
     st.pyplot(fig2)
+
+    plot = sns.heatmap(no_cat_df.corr(), cmap=sns.cubehelix_palette(8), annot=True)
+    st.pyplot(plot.get_figure())
     
     # fig4 = sns.histplot(data=df, x="Gender")
     # st.pyplot(fig4.get_figure())
