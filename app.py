@@ -1,7 +1,7 @@
 import base64
 import pickle
 import time
-from urlib.parse import urlparse
+from urllib.parse import urlparse
 import plotly.express as px 
 import altair as alt
 import pandas_profiling
