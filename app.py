@@ -126,7 +126,7 @@ if app_mode == 'Introduction':
 
     # Apply to each column
     col1,col2,col3,col4,col5 = st.columns(5)
-    col1.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>The gender of the person (Male/Female)</div>', unsafe_allow_html=True)
+    col1.markdown(f'<div style="{box_style}"><strong>Gender</strong><br><br><br>Whether a person is Male or Female</div>', unsafe_allow_html=True)
     col2.markdown(f'<div style="{box_style}"><strong>Age</strong><br><br><br>The age of the person in years</div>', unsafe_allow_html=True)
     col3.markdown(f'<div style="{box_style}"><strong>Sleep Duration</strong><br><br><br>The number of hours spent sleeping in a day</div>', unsafe_allow_html=True)
     col4.markdown(f'<div style="{box_style}"><strong>Quality of Sleep</strong><br><br><br>Subjective rating of sleep quality (1-10)</div>', unsafe_allow_html=True)
