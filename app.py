@@ -672,20 +672,19 @@ if app_mode == 'Deployment':
     # deploy_df= df.drop(labels='alcohol', axis=1)
     list_var = deploy_df.columns
     #st.write(target_choice)
-    st.write("Gender: 0 = Female, 1 = Male")
     number1 = st.number_input(deploy_df.columns[0],0,1, 1)
+    st.info("Gender: 0 = Female, 1 = Male")
     number2 = st.number_input(deploy_df.columns[1],18, 70, 25)
     number3 = st.number_input(deploy_df.columns[2],4,12, 7)
     number4 = st.number_input(deploy_df.columns[3],30, 90, 60)
     number5 = st.number_input(deploy_df.columns[4],1, 10, 5)
-
-    st.write("BMI Category: 0 = Normal, 1 = Obese, 2 = Overweight") 
     number6 = st.number_input(deploy_df.columns[5],0, 2, 0)
-
+    st.info("BMI Category: 0 = Normal, 1 = Obese, 2 = Overweight") 
     number7 = st.number_input(deploy_df.columns[6],50, 100, 75, 5)
     number8 = st.number_input(deploy_df.columns[7],1000, 10000, 5000, 100)
-    st.write("Sleep Disorder: 0 = Insomnia, 1 = No Sleep Disorder, 2 = Sleep Apnea")
     number9 = st.number_input(deploy_df.columns[8],0, 2, 1)
+    st.info("Sleep Disorder: 0 = Insomnia, 1 = No Sleep Disorder, 2 = Sleep Apnea")
+    st.markdown("<p style='font-size: 10px;'>Sleep Disorder: 0 = Insomnia, 1 = No Sleep Disorder, 2 = Sleep Apnea</p>", unsafe_allow_html=True)
    # number10 = st.number_input(deploy_df.columns[9],2)
 
     data_new = pd.DataFrame({deploy_df.columns[0]:[number1], deploy_df.columns[1]:[number2], deploy_df.columns[2]:[number3],
