@@ -87,6 +87,7 @@ df = df_sleep.dropna()
 #########
 # Create new df just in case
 df = df.drop(['Person ID', 'Blood Pressure'], axis =1)
+df['BMI Category'] = df['BMI Category'].replace('Normal Weight','Normal')
 df2 = df.copy()
 #########
 
