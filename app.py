@@ -657,7 +657,7 @@ if app_mode == 'Chatbot':
 
 if app_mode == 'Deployment':
     # Deployment page for model deployment
-    st.markdown("# :violet[Deployment 🚀]")
+    st.markdown("# :violet[Deployment]")
 
     ###
     #st.write("Key for Categorical Variables:")
