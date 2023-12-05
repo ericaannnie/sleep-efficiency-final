@@ -545,6 +545,7 @@ if app_mode == 'Prediction':
         st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
         st.write("3) MSE: ", np.round(mse))
         st.write("4) The R-Square score of the model is " , np.round(r2))
+        st.write(lm)
     else:
         #y_test = np.argmax(y_test)
         #predictions=np.argmax(predictions)
@@ -562,6 +563,7 @@ if app_mode == 'Prediction':
         st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
         st.write("3) MSE: ", np.round(mse))
         st.write("4) The R-Square score of the model is " , np.round(r2))
+        st.write(lm)
         
 
     @st.cache_resource
