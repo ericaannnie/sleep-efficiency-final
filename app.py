@@ -456,7 +456,7 @@ if app_mode == 'Prediction':
 ###############################################################################################################################################################################################
 
     @st.cache_resource
-    def predict(target_choice,test_size, df,output_multi):
+    def predict(target_choice,test_size, df,output_multi, model_m):
         #independent variables / explanatory variables
         #choosing column for target
         df = df.drop(['Occupation'], axis = 1)
@@ -464,7 +464,7 @@ if app_mode == 'Prediction':
         y = df[target_choice]
 
         X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=test_size, random_state = 42)
-        lm = MODELS[model_mode]()
+        lm = MODELS[model_m]()
         model = lm.fit(X_train,y_train)
         predictions = lm.predict(X_test)
         return lm,X_train,y_test,predictions,model
@@ -495,7 +495,7 @@ if app_mode == 'Prediction':
         mlflow.log_param('model', MODELS[model_mode])
         mlflow.log_param('features', output_multi)
     
-    lm,X_train,y_test,predictions,model = predict(select_variable,test_size,pred_df,output_multi)
+    lm,X_train,y_test,predictions,model = predict(select_variable,test_size,pred_df,output_multi, model_mode)
 
     
     # Model evaluation
