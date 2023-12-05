@@ -170,7 +170,7 @@ if app_mode == 'Introduction':
     st.write("Percentage of total missing values:",totalmiss)
     st.write(dfnull)
     if totalmiss <= 30:
-        st.success("Looks good! as we have less then 30 percent of missing values.")
+        st.success("Looks good! Since we have no missing values.")
     else:
         st.warning("Poor data quality due to greater than 30 percent of missing value.")
         st.markdown(" > Theoretically, 25 to 30 percent is the maximum missing values are allowed, there's no hard and fast rule to decide this threshold. It can vary from problem to problem.")
@@ -183,7 +183,7 @@ if app_mode == 'Introduction':
     st.write("Completeness ratio:",completeness)
     st.write(nonmissing)
     if completeness >= 0.80:
-        st.success("Looks good! as we have completeness ratio greater than 0.85.")
+        st.success("Looks good! as we have a perfect completeness ratio.")
 
     else:
         st.success("Poor data quality due to low completeness ratio( less than 0.85).")
@@ -195,7 +195,7 @@ if app_mode == 'Introduction':
 
     # Start tracking
     tracker.start()
-
+    st.warning('Looks like we have not destroyed the environment yet, which is a good sign!')
     @st.cache_resource
     def predict(target_choice,test_size, df,output_multi):
         df = df.drop(['Occupation'], axis = 1)
@@ -725,6 +725,7 @@ if app_mode == 'Chatbot':
 if app_mode == 'Deployment':
     # Deployment page for model deployment
     st.markdown("# :violet[Deployment]")
+    st.warning("Please select values for your current data")
 
     ###
     #st.write("Key for Categorical Variables:")
@@ -775,6 +776,7 @@ if app_mode == 'Deployment':
     # Predict on a Pandas DataFrame.
     #import pandas as pd
     st.write("Prediction :", np.round(loaded_model.predict(data_new)[0],2))
+    st.warning("This is the predicted quality of sleep. Feel free to toggle some of the values such that you see what may affect your sleep quality the most.")
 
 
 if app_mode == 'Conclusion':
