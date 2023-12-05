@@ -543,9 +543,9 @@ if app_mode == 'Prediction':
     if model_mode == 'Linear Regression':
         st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
         st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
-        st.write("3) MSE: ", np.round(mse))
-        st.write("4) The R-Square score of the model is " , np.round(r2))
-        st.write(lm)
+        st.write("3) MSE: ", np.round(mse, 2))
+        st.write("4) The R-Square score of the model is " , np.round(r2, 2))
+        #st.write(lm)
     else:
         #y_test = np.argmax(y_test)
         #predictions=np.argmax(predictions)
@@ -561,9 +561,9 @@ if app_mode == 'Prediction':
         # st.write("4) Model Recall Score (in %):", np.round(recall_score*100,2))
         st.write("1) The model explains,", np.round(mt.explained_variance_score(y_test, predictions)*100,2),"% variance of the target feature")
         st.write("2) The Mean Absolute Error of model is:", np.round(mae,2))
-        st.write("3) MSE: ", np.round(mse))
-        st.write("4) The R-Square score of the model is " , np.round(r2))
-        st.write(lm)
+        st.write("3) MSE: ", np.round(mse, 2))
+        st.write("4) The R-Square score of the model is " , np.round(r2, 2))
+        #st.write(lm)
         
 
     @st.cache_resource
