@@ -104,7 +104,7 @@ select_variable =  st.sidebar.selectbox('🎯 Select Variable to Predict',['Qual
 if app_mode == 'Introduction':
     
     st.info("The dataset contains data on factors that affect sleep health.")
-    st.info("The target audience for this application are people who are interested in bettering their sleep quality")
+    st.info("The target audience for this application are people who are interested in bettering their sleep quality.")
     st.info("This website will be able to predict your quality of sleep on a scale of 1 to 10 as well as showcase what factors are affecting it positively and negatively.")
    
     # Display dataset details
