@@ -799,6 +799,9 @@ if app_mode == 'Conclusion':
     st.info("The higher your stress level, the bigger the negative impact on level of sleep quality.")
     st.write("Decrease stress level for a greater chance at having a better sleep quality.")
     st.markdown("")
+    st.markdown("##*Use Case:")
+    st.info("Can be used by Wearable Technology companies and devices like Fitbits and Apple's Apple Watches for health and wellness related applications.")
+    st.info("Can also be used by Healthcare companies for examining and monitoring the sleep health of patients, especially those with sleep-related disorders like sleep apnea.")
     st.markdown("")
     st.markdown("")
     st.image(
