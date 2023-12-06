@@ -268,7 +268,7 @@ if app_mode == 'Visualization':
     
     st.line_chart(data=df2, x=symbols[0], y=symbols[1], width=0, height=0, use_container_width=True)
     # Display a bar chart for the selected variables
-    st.bar_chart(data=df2, x=symbols[0], y=symbols[1], use_container_width=True)
+    st.bar_chart(data=df2, x=symbols[0], use_container_width=True)
 
     # Content for the "Correlation" tab   
 
